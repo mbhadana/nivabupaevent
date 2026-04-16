@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Hero.css';
-import betterTogetherLogo from '../assets/better-together-logo.png';
+import betterTogetherLogo from '../assets/better-together-logo.svg';
 import img1 from '../assets/IMG_6087.JPG';
 import img2 from '../assets/IMG_6478.JPG';
 import img3 from '../assets/IMG_6541.JPG';

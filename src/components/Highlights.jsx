@@ -5,42 +5,84 @@ import './Highlights.css';
 const highlightData = [
   {
     category: 'IN CONVERSATION',
-    title: 'Amitabh Chaudhry, MD & CEO Axis Bank with Krishnan Ramachandran, CEO & MD, Niva Bupa Health Insurance',
+    title: (
+      <>
+        Amitabh Chaudhry
+        <div style={{ fontSize: '0.65em', marginTop: '4px', fontWeight: '400', color: 'var(--text-secondary)', lineHeight: '1.4' }}>MD & CEO Axis Bank</div>
+        <div style={{ marginTop: '16px' }}><span style={{ fontSize: '0.65em', fontWeight: '400', color: 'var(--text-secondary)' }}>with</span> Krishnan Ramachandran</div>
+        <div style={{ fontSize: '0.65em', marginTop: '4px', fontWeight: '400', color: 'var(--text-secondary)', lineHeight: '1.4' }}>CEO & MD, Niva Bupa Health Insurance</div>
+      </>
+    ),
     image: '/IMG_5929.JPG'
   },
   {
     category: 'PANEL DISCUSSION 1',
-    title: "The Missing Link in Loan Protection Strategies: Insurance is not just protection—it's a risk mitigation with revenue lever.",
+    title: (
+      <>
+        The Missing Link in Loan Protection Strategies:
+        <div style={{ fontSize: '0.65em', marginTop: '4px', fontWeight: '400', color: 'var(--text-secondary)', lineHeight: '1.4' }}>Insurance is not just protection—it's a risk mitigation with revenue lever.</div>
+      </>
+    ),
     image: '/IMG_5970.JPG'
   },
   {
     category: 'PANEL DISCUSSION 2',
-    title: 'AI-Driven Transformation in Insurance: How AI might redefine the very operating model of insurance companies.',
+    title: (
+      <>
+        AI-Driven Transformation in Insurance:
+        <div style={{ fontSize: '0.65em', marginTop: '4px', fontWeight: '400', color: 'var(--text-secondary)', lineHeight: '1.4' }}>How AI might redefine the very operating model of insurance companies.</div>
+      </>
+    ),
     image: '/IMG_6052.JPG'
   },
   {
     category: 'KEYNOTE ADDRESS',
-    title: 'Yashish Dahiya, Co-Founder & Group CEO, PolicyBazaar',
+    title: (
+      <>
+        Yashish Dahiya
+        <div style={{ fontSize: '0.65em', marginTop: '4px', fontWeight: '400', color: 'var(--text-secondary)', lineHeight: '1.4' }}>Co-Founder & Group CEO, PolicyBazaar</div>
+      </>
+    ),
     image: '/IMG_6108.JPG'
   },
   {
     category: 'PANEL DISCUSSION 3',
-    title: 'Bridging the Trust Deficit in Insurance: How insurers can rebuild trust',
+    title: (
+      <>
+        Bridging the Trust Deficit in Insurance:
+        <div style={{ fontSize: '0.65em', marginTop: '4px', fontWeight: '400', color: 'var(--text-secondary)', lineHeight: '1.4' }}>How insurers can rebuild trust</div>
+      </>
+    ),
     image: '/IMG_6248.JPG'
   },
   {
     category: 'PANEL DISCUSSION 4',
-    title: 'Winning the Last Mile: Reimagining Insurance Distribution in a Platform Economy',
+    title: (
+      <>
+        Winning the Last Mile:
+        <div style={{ fontSize: '0.65em', marginTop: '4px', fontWeight: '400', color: 'var(--text-secondary)', lineHeight: '1.4' }}>Reimagining Insurance Distribution in a Platform Economy</div>
+      </>
+    ),
     image: '/IMG_5929.JPG'
   },
   {
     category: 'KEYNOTE SPEAKER',
-    title: "Gauranga Das, Member of ISKCON's Governing Body Commission",
+    title: (
+      <>
+        Gauranga Das
+        <div style={{ fontSize: '0.65em', marginTop: '4px', fontWeight: '400', color: 'var(--text-secondary)', lineHeight: '1.4' }}>Member of ISKCON's Governing Body Commission</div>
+      </>
+    ),
     image: '/IMG_5970.JPG'
   },
   {
     category: 'PANEL DISCUSSION 5',
-    title: 'Affordability vs Value in Insurance: How insurers can innovate through new product designs, preventive healthcare initiatives, and technology-driven cost efficiencies.',
+    title: (
+      <>
+        Affordability vs Value in Insurance:
+        <div style={{ fontSize: '0.65em', marginTop: '4px', fontWeight: '400', color: 'var(--text-secondary)', lineHeight: '1.4' }}>How insurers can innovate through new product designs, preventive healthcare initiatives, and technology-driven cost efficiencies.</div>
+      </>
+    ),
     image: '/IMG_6052.JPG'
   }
 ];

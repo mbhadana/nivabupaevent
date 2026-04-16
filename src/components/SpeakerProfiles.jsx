@@ -34,7 +34,7 @@ const SpeakerProfiles = () => {
   return (
     <section className="speaker-profiles" id="speakers">
       <div className="section-container">
-        <h2 className="section-title text-gradient speaker-section-title">Keynote Speaker</h2>
+        <h2 className="section-title text-gradient speaker-section-title">Speakers</h2>
         
         <div className="speakers-grid">
           {speakers.map((speaker, index) => {
