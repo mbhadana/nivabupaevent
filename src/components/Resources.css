@@ -1,0 +1,131 @@
+.resources {
+  padding: 120px 0 0 0;
+  background-color: var(--bg-primary); /* Primary black background */
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Rich background texture */
+.resources::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 50% 50%, rgba(0, 173, 238, 0.05) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.resources-header {
+  margin-bottom: 60px;
+  max-width: 800px;
+  position: relative;
+  z-index: 1;
+}
+
+.resources-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #fff;
+}
+
+.resources-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.horizontal-resources {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  position: relative;
+  z-index: 1;
+  max-width: 1300px;
+  margin: 0 auto; /* Center the grid */
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.resource-card-horizontal {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: transparent;
+  border: none;
+  border-right: 1px solid rgba(255, 255, 255, 0.15); 
+  border-radius: 0;
+  padding: 40px 30px; 
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.resource-card-horizontal:hover {
+  background: rgba(255, 255, 255, 0.02);
+  transform: none;
+  box-shadow: inset 0 0 0 1px #00adee;
+}
+
+.resource-card-title {
+  font-size: 1.5rem; /* Adjusted for horizontal grid */
+  font-weight: 700;
+  color: #00adee; /* Brand blue heading */
+  line-height: 1.3;
+}
+
+.resource-card-desc {
+  font-size: 1rem; /* Slightly smaller to prevent text wrapping issues */
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: auto; /* Push link to bottom */
+  padding-bottom: 20px;
+}
+
+.resource-card-link {
+  color: #fff; 
+  font-weight: 600; 
+  text-decoration: none;
+  font-size: 1.05rem;
+  transition: all 0.3s ease;
+  width: fit-content;
+}
+
+.resource-card-link:hover {
+  color: #00adee;
+}
+
+@media (max-width: 1024px) {
+  .horizontal-resources {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .resources-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .resources {
+    border-top: none; /* Strip out geometric line bounding box */
+    padding-top: 30px; /* Crush dead-zone layout spacing */
+  }
+
+  .horizontal-resources {
+    grid-template-columns: 1fr;
+  }
+  
+  .resource-card-horizontal {
+    padding: 30px 20px;
+  }
+  
+  .resource-card-title {
+    font-size: 1.4rem;
+  }
+}

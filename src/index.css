@@ -1,0 +1,154 @@
+:root {
+  --bg-primary: #000000;
+  --bg-secondary: #0A0A0A;
+  --surface: #111111;
+  --primary: #FFFFFF;
+  --accent: #F9B233;
+  --text-primary: #FFFFFF;
+  --text-secondary: #A0A0A0;
+  --border-color: rgba(255, 255, 255, 0.15);
+  --padding-std: 24px;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --radius-pill: 64px;
+  --radius-card: 0px;
+  --blueprint-line: rgba(255, 255, 255, 0.04);
+}
+
+/* ─── Force sharp corners on ALL images ─── */
+img {
+  border-radius: 0 !important;
+}
+
+/* ─── Blueprint grid overlay ─── */
+.app::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  background:
+    /* Vertical lines */
+    repeating-linear-gradient(
+      90deg,
+      var(--blueprint-line) 0px,
+      var(--blueprint-line) 1px,
+      transparent 1px,
+      transparent 200px
+    ),
+    /* Horizontal lines */
+    repeating-linear-gradient(
+      0deg,
+      var(--blueprint-line) 0px,
+      var(--blueprint-line) 1px,
+      transparent 1px,
+      transparent 200px
+    );
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: #00adee;
+  letter-spacing: -0.02em;
+}
+
+/* Antigravity Inspired Cards */
+.antigravity-card {
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-card);
+  padding: 40px;
+  transition: var(--transition-smooth);
+}
+
+.antigravity-card:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.section-container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 80px var(--padding-std);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #00adee, #0078a8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555555;
+}
+
+/* Typography Scale utilities */
+.text-display {
+  font-size: clamp(3rem, 5vw + 1rem, 5rem);
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+
+.text-title {
+  font-size: clamp(2rem, 3vw + 1rem, 3rem);
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --padding-std: 16px;
+    --radius-card: 0px;
+  }
+
+  .section-container {
+    padding: 50px var(--padding-std);
+  }
+
+  .text-display {
+    font-size: 2rem;
+  }
+
+  .text-title {
+    font-size: 1.6rem;
+  }
+}

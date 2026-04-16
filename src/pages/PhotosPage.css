@@ -1,0 +1,220 @@
+.photos-page {
+  padding-top: 100px;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* ─── Hero Section ─── */
+.photos-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+  padding: 80px 100px 100px 100px;
+}
+
+.photos-hero-text {
+  flex: 1;
+  max-width: 500px;
+}
+
+/* Icon Badge Completely Replaced/Retired */
+
+.photos-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #00adee;
+  letter-spacing: -2px;
+  margin-bottom: 20px;
+}
+
+.photos-desc {
+  font-size: 1.15rem;
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.photos-subdesc {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.photos-accent-line {
+  width: 60px;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #00adee, #0078a8);
+}
+
+/* ─── Carousel ─── */
+.photos-hero-visual {
+  flex: 1.2;
+  position: relative;
+}
+
+.photos-carousel {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Match the Hero absolute scaling matrix exactly */
+  border-radius: var(--radius-card, 0); 
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+}
+
+.carousel-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.carousel-img.active {
+  opacity: 1;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.carousel-dot.active {
+  background: #fff;
+  transform: scale(1.2);
+}
+
+.carousel-dot:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* ─── Drop Zone ─── */
+.photos-dropzone-section {
+  padding: 20px 100px 120px 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.photos-dropzone {
+  width: 100%;
+  max-width: 700px;
+  padding: 80px 40px;
+  border-radius: 0;
+  border: 2px dashed rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.photos-dropzone:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.photos-dropzone.drag-over {
+  border-color: #00adee;
+  background: rgba(0, 173, 238, 0.05);
+}
+
+.dropzone-icon {
+  color: #555;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.photos-dropzone:hover .dropzone-icon {
+  color: #888;
+}
+
+.photos-dropzone.drag-over .dropzone-icon {
+  color: #00adee;
+}
+
+.dropzone-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #00adee;
+}
+
+.dropzone-hint {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .photos-hero {
+    flex-direction: column;
+    padding: 40px 20px 60px 20px;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .photos-hero-text {
+    max-width: 100%;
+  }
+
+  .photos-hero-visual {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+/* Obsolete mobile logo spacing string eliminated */
+
+  .photos-accent-line {
+    margin: 0 auto;
+  }
+
+  .photos-title {
+    font-size: 2rem;
+  }
+
+  .photos-desc {
+    font-size: 1rem;
+  }
+
+  .photos-subdesc {
+    font-size: 0.85rem;
+  }
+
+  .photos-dropzone-section {
+    padding: 20px 20px 60px 20px;
+  }
+
+  .photos-dropzone {
+    padding: 50px 20px;
+  }
+
+  .dropzone-title {
+    font-size: 1rem;
+  }
+
+  .dropzone-hint {
+    font-size: 0.8rem;
+  }
+}
+

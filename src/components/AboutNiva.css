@@ -1,0 +1,106 @@
+.about-niva {
+  padding: 100px 0;
+  background: var(--bg-dark);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle glow effect in the background */
+.about-niva::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.03) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.about-niva-content {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-niva-logo-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-niva-logo {
+  max-width: 220px;
+  height: auto;
+  filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.2));
+}
+
+.about-niva-text-side {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-niva-heading {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+.about-niva-description {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 850px;
+}
+
+.about-niva-link {
+  display: inline-block;
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+  width: fit-content;
+}
+
+.about-niva-link:hover {
+  transform: translateX(8px);
+  color: #fff;
+  text-shadow: 0 0 10px var(--primary);
+}
+
+@media (max-width: 992px) {
+  .about-niva-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .about-niva-text-side {
+    align-items: center;
+  }
+  
+  .about-niva-logo {
+    max-width: 180px;
+  }
+  
+  .about-niva-heading {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-niva {
+    padding: 60px 0;
+  }
+  
+  .about-niva-description {
+    font-size: 1rem;
+  }
+}

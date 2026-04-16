@@ -1,0 +1,295 @@
+.speaker-profiles {
+  margin-top: -200px;
+  padding: 100px 0;
+  background-color: var(--bg-dark);
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 10;
+}
+
+.section-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.speaker-section-title {
+  text-align: left;
+  position: relative;
+  left: -16px; /* Offset the 40px container padding to exactly hit the 24px EventFlow mark */
+  margin-bottom: 80px;
+  font-size: 3rem;
+}
+
+.speakers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.speaker-card {
+  position: relative;
+  background: #111;
+  border-radius: 0;
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  cursor: pointer;
+  border: none;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+}
+
+.speaker-card:hover {
+  transform: none;
+  box-shadow: inset 0 0 0 1px #00adee;
+}
+
+.speaker-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.speaker-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.speaker-card.active .speaker-card-img {
+  transform: scale(1.05);
+}
+
+/* Plus Icon */
+.speaker-plus-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.speaker-plus-icon.rotate {
+  background: #00adee; /* Use brand blue instead of --primary (which was white) */
+  transform: rotate(135deg);
+  border-color: transparent;
+}
+
+/* Initial Bottom Overlay */
+.speaker-initial-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30px;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+  z-index: 5;
+  transition: opacity 0.3s ease;
+}
+
+.speaker-card.active .speaker-initial-overlay {
+  opacity: 0;
+}
+
+.speaker-card-name {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.speaker-card-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Slide-up Bio Overlay */
+.speaker-bio-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: auto;
+  max-height: 85%;
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 15%);
+  z-index: 10;
+  padding: 40px 30px 30px 30px;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(100%);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.speaker-bio-overlay.visible {
+  transform: translateY(0);
+}
+
+.bio-overlay-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.bio-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 5px;
+  padding-right: 40px; /* Space for the X icon */
+}
+
+.bio-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 15px;
+  line-height: 1.3;
+}
+
+.bio-divider {
+  width: 40px;
+  height: 2px;
+  background: var(--primary);
+  margin-bottom: 20px;
+}
+
+.bio-scroll-area {
+  overflow-y: auto; 
+  padding-right: 10px;
+}
+
+/* Custom Scrollbar - kept just in case but hidden */
+.bio-scroll-area::-webkit-scrollbar {
+  display: none;
+}
+
+.bio-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 400;
+}
+
+@media (max-width: 1024px) {
+  .speakers-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .speaker-profiles {
+    margin-top: 0;
+    border-top: none;
+    padding-top: 20px; /* Removing the massive empty space beneath the clock */
+  }
+
+  .speaker-section-title {
+    font-size: 1.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+    margin-bottom: 30px;
+    padding: 0;
+  }
+
+  .speakers-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    margin: 0 auto;
+    gap: 30px; /* Separates the cards vertically */
+  }
+  
+  .speaker-card {
+    aspect-ratio: auto;
+    height: auto;
+    background: transparent; /* Remove solid background */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Just stroke */
+    border-radius: 8px; /* Slight polish */
+  }
+  
+  .speaker-card-inner {
+    display: grid;
+    grid-template-columns: 1fr 110px; /* Text on left, 110px image fixed on right */
+    grid-template-areas: 
+      "name image"
+      "title title"
+      "divider divider"
+      "bio bio";
+    height: auto;
+    padding: 24px 20px;
+    gap: 16px;
+    align-items: center;
+  }
+  
+  .speaker-bio-overlay, 
+  .bio-overlay-content, 
+  .bio-scroll-area {
+    display: contents !important; /* Allows children to participate directly in the parent grid */
+  }
+
+  .speaker-card-img {
+    grid-area: image;
+    width: 100px;
+    height: 100px !important;
+    border-radius: 50%; /* Premium circular headshot format */
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: auto; /* Push to top of its cell */
+  }
+
+  .bio-name {
+    grid-area: name;
+    font-size: 1.6rem;
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+    align-self: center;
+  }
+
+  .bio-title {
+    grid-area: title;
+    font-size: 0.8rem;
+    margin: 0;
+    color: var(--primary);
+    line-height: 1.5;
+  }
+
+  .bio-divider {
+    grid-area: divider;
+    margin: 8px 0;
+  }
+
+  .bio-text {
+    grid-area: bio;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  .speaker-initial-overlay, .speaker-plus-icon {
+    display: none !important; /* Hide old elements permanently */
+  }
+}

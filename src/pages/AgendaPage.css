@@ -1,0 +1,151 @@
+.agenda-page {
+  padding-top: 100px;
+  min-height: 100vh;
+}
+
+/* ─── Hero ─── */
+.agenda-hero {
+  padding: 80px 100px 60px 100px;
+}
+
+.agenda-hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #00adee;
+  letter-spacing: -2px;
+  margin-bottom: 16px;
+}
+
+.agenda-hero-desc {
+  font-size: 1.15rem;
+  color: #888;
+  line-height: 1.6;
+  max-width: 550px;
+}
+
+/* ─── Timetable ─── */
+.agenda-timetable {
+  padding: 0 100px 120px 100px;
+}
+
+.timetable-header {
+  display: grid;
+  grid-template-columns: 220px 1fr 1.5fr;
+  gap: 40px;
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 8px;
+}
+
+.th-time,
+.th-session,
+.th-details {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #555;
+}
+
+.timetable-row {
+  display: grid;
+  grid-template-columns: 220px 1fr 1.5fr;
+  gap: 40px;
+  padding: 28px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  transition: background 0.3s ease;
+  border-radius: 12px;
+}
+
+.timetable-row:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Session type styling */
+.timetable-row.session {
+  border-left: 3px solid rgba(0, 173, 238, 0.4);
+}
+
+.timetable-row.break {
+  border-left: 3px solid rgba(255, 255, 255, 0.06);
+}
+
+.timetable-row.break .tt-time span,
+.timetable-row.break .tt-title {
+  opacity: 0.6;
+}
+
+/* Time column */
+.tt-time {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 2px;
+}
+
+.tt-time span {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #aaa;
+  white-space: nowrap;
+}
+
+/* Session column */
+.tt-session {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tt-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #00adee;
+  line-height: 1.3;
+}
+
+.tt-subtitle {
+  font-size: 0.9rem;
+  color: #00adee;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+/* Details column */
+.tt-details p {
+  font-size: 0.95rem;
+  color: #777;
+  line-height: 1.7;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 968px) {
+  .agenda-hero {
+    padding: 60px 24px 40px 24px;
+  }
+
+  .agenda-hero-title {
+    font-size: 2.5rem;
+  }
+
+  .agenda-timetable {
+    padding: 0 24px 80px 24px;
+  }
+
+  .timetable-header {
+    display: none;
+  }
+
+  .timetable-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 20px 16px;
+  }
+
+  .tt-time span {
+    font-size: 0.85rem;
+  }
+
+  .tt-title {
+    font-size: 1.1rem;
+  }
+}

@@ -1,0 +1,140 @@
+.highlights {
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.highlights-desktop {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.highlights-sticky-container {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden; /* Keeps crossfade zoom elements perfectly hidden until active */
+  z-index: 10;
+}
+
+.highlights-master-card {
+  width: 100%;
+}
+
+.highlights-grid-container {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.highlights-col-left {
+  flex: 1;
+  max-width: 50%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 60px;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.highlights-text-display {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.highlights-category {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+
+.highlights-title {
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+.highlights-col-right {
+  flex: 1;
+  max-width: 50%;
+  display: flex;
+  align-items: stretch;
+}
+
+.highlights-image-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: none;
+  border-radius: 0;
+}
+
+.highlights-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.9);
+}
+
+/* Atmospheric Glow Background replacing the white card */
+.highlights-glow-backdrop {
+  display: none;
+}
+
+/* ─── Mobile list hidden on desktop ─── */
+.highlights-mobile {
+  display: none;
+}
+
+.highlights-mobile-card {
+  margin-bottom: 60px;
+  text-align: left;
+}
+
+.highlights-mobile-card .highlights-category {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.highlights-mobile-card .highlights-title {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  /* Override the inline 500vh height */
+  .highlights {
+    height: auto !important;
+  }
+
+  /* Hide desktop scroll-driven layout */
+  .highlights-desktop {
+    display: none;
+  }
+
+  /* Show mobile stacked layout */
+  .highlights-mobile {
+    display: block;
+    padding: 60px 0;
+  }
+
+  .highlights-title {
+    font-size: 1.6rem;
+  }
+
+  .highlights-image-container {
+    aspect-ratio: 4/3;
+  }
+}
