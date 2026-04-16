@@ -18,10 +18,10 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'Speakers', href: '/speakers' },
-    { name: 'Highlights', href: '/keynotes' },
+    { name: 'Speaker videos', href: '/speakers' },
+    { name: 'Highlight videos', href: '/keynotes' },
     { name: 'Gallery', href: '/gallery' },
-    { name: 'Photos', href: '/photos' },
+    { name: 'Get your photos', href: '/photos' },
   ];
 
   return (

@@ -1,8 +1,10 @@
-import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useRef, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { Coffee, Mic, MicVocal, UsersRound, MessageSquare, Utensils, Trophy, Star, UserPlus, FileText, ChevronLeft, ChevronRight } from 'lucide-react';
 import './EventFlow.css';
 
 const agenda = [
+  { time: ' ', title: ' ', desc: '' },
   { time: '9:00 AM – 10:00 AM', title: 'Registration + Breakfast', desc: '' },
   { time: '10:00 AM – 10:45 AM', title: 'Welcome Address', desc: 'Krishnan Ramachandran, CEO & MD, Niva Bupa Health Insurance' },
   { time: '10:45 AM – 11:15 AM', title: 'In Conversation', desc: 'Amitabh Chaudhry, MD & CEO Axis Bank with Krishnan Ramachandran, CEO & MD, Niva Bupa Health Insurance' },
@@ -20,153 +22,99 @@ const agenda = [
   { time: '7:35 PM onwards', title: 'Dinner & Cocktails', desc: '' }
 ];
 
-const parseTimeToDegrees = (timeString) => {
-  const match = timeString.match(/(\d+):(\d+)\s*(AM|PM)/i);
-  if (match) {
-    let hours = parseInt(match[1], 10);
-    const minutes = parseInt(match[2], 10);
-    const ampm = match[3].toUpperCase();
-
-    if (hours === 12 && ampm === 'AM') hours = 0;
-    
-    const hourDegrees = ((hours % 12) * 30) + (minutes * 0.5);
-    const minuteDegrees = minutes * 6;
-    return { hourDegrees, minuteDegrees };
-  }
-  return { hourDegrees: 0, minuteDegrees: 0 };
-}
-
-const AnalogClock = ({ timeString }) => {
-  const { hourDegrees, minuteDegrees } = parseTimeToDegrees(timeString);
-  const numbers = [12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-  
-  return (
-    <div className="analog-clock">
-      {/* 60 Ticks Ring - Outer Edge */}
-      {[...Array(60)].map((_, i) => (
-         <div key={i} className={`clock-marker-tick ${i % 5 === 0 ? 'accent' : ''}`} style={{ transform: `rotate(${i * 6}deg)` }}></div>
-      ))}
-
-      {/* Numerical Markers - Pushed Inside */}
-      {numbers.map((num, i) => {
-         const deg = i * 30;
-         return (
-            <div key={num} className="clock-marker" style={{ transform: `rotate(${deg}deg)` }}>
-              <div 
-                className="clock-number"
-                style={{ transform: `rotate(-${deg}deg)`, display: 'inline-block' }}
-              >
-                {num}
-              </div>
-            </div>
-         )
-      })}
-      
-      {/* Elevated Trapzoidal Hands */}
-      <motion.div 
-        className="clock-hand-hour-wrapper"
-        animate={{ rotate: hourDegrees, x: '-50%' }}
-        transition={{ type: "spring", stiffness: 40, damping: 12 }}
-      >
-         <div className="clock-hand-front-hour"></div>
-         <div className="clock-hand-tail-hour"></div>
-         <div className="clock-hand-ring"></div>
-      </motion.div>
-
-      <motion.div 
-        className="clock-hand-minute-wrapper"
-        animate={{ rotate: minuteDegrees, x: '-50%' }}
-        transition={{ type: "spring", stiffness: 30, damping: 10 }}
-      >
-         <div className="clock-hand-front-minute"></div>
-         <div className="clock-hand-tail-minute"></div>
-         <div className="clock-hand-ring"></div>
-      </motion.div>
-    </div>
-  )
-}
+const getEventIcon = (title) => {
+  const lower = title.toLowerCase();
+  if (lower.includes('breakfast') || lower.includes('tea')) return <Coffee size={32} strokeWidth={1} />;
+  if (lower.includes('lunch') || lower.includes('dinner')) return <Utensils size={32} strokeWidth={1} />;
+  if (lower.includes('comedian')) return <MicVocal size={32} strokeWidth={1} />;
+  if (lower.includes('keynote')) return <Star size={32} strokeWidth={1} />;
+  if (lower.includes('awards')) return <Trophy size={32} strokeWidth={1} />;
+  if (lower.includes('discussion') || lower.includes('panel')) return <UsersRound size={32} strokeWidth={1} />;
+  if (lower.includes('conversation')) return <MessageSquare size={32} strokeWidth={1} />;
+  if (lower.includes('address')) return <Mic size={32} strokeWidth={1} />;
+  if (lower.includes('registration')) return <UserPlus size={32} strokeWidth={1} />;
+  return <FileText size={32} strokeWidth={1} />;
+};
 
 const EventFlow = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const observerRefs = useRef([]);
+  const scrollRef = useRef(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [isScrolledLeft, setIsScrolledLeft] = useState(false);
+
+  const handleScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      const progress = scrollWidth > clientWidth ? scrollLeft / (scrollWidth - clientWidth) : 0;
+      setScrollProgress(progress);
+      setIsScrolledLeft(scrollLeft > 20);
+    }
+  };
 
   useEffect(() => {
-    observerRefs.current = observerRefs.current.slice(0, agenda.length);
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = Number(entry.target.dataset.index);
-            setActiveIndex(index);
-          }
-        });
-      },
-      {
-        root: null,
-        rootMargin: '-50% 0px -50% 0px', 
-        threshold: 0
-      }
-    );
-
-    observerRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
-    return () => observer.disconnect();
+    handleScroll();
+    window.addEventListener('resize', handleScroll);
+    return () => window.removeEventListener('resize', handleScroll);
   }, []);
 
   return (
-    <section className="event-flow" id="agenda" style={{ position: 'relative', height: `${(agenda.length - 1) * 100 + 20}vh` }}>
-      
-      <div className="event-scroll-track" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
-         {agenda.map((_, index) => (
-            <div
-               key={index}
-               data-index={index}
-               ref={(el) => (observerRefs.current[index] = el)}
-               style={{ height: index === agenda.length - 1 ? '20vh' : '100vh', width: '100%' }}
-            />
-         ))}
+    <section className="event-flow-section" id="agenda" style={{ paddingLeft: 0, paddingRight: 0 }}>
+      {/* Centralized Text/Title Container */}
+      <div className="section-container">
+        <h2 className="section-title text-gradient" style={{ marginBottom: '30px' }}>Event Flow</h2>
       </div>
+        
+      {/* Full-width Boundary Container */}
+      <div className="event-track-wrapper">
+          <div 
+            className={`scroll-fade-left ${isScrolledLeft ? 'visible' : ''}`}
+            onClick={() => scrollRef.current?.scrollBy({ left: -400, behavior: 'smooth' })}
+          >
+            <ChevronLeft size={48} strokeWidth={4} />
+          </div>
 
-      <div className="event-flow-sticky-container">
-        <div className="section-container" style={{ width: '100%', position: 'relative', height: '100vh', display: 'flex', alignItems: 'center' }}>
-          
-          <h2 className="section-title text-gradient event-flow-section-title">Event Flow</h2>
-
-          <div className="event-flow-master-card">
-            <div className="event-flow-grid">
-              
-              <div className="event-col-left">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeIndex}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.4 }}
-                    className="event-active-display"
-                  >
-                    <div className="event-time-left">{agenda[activeIndex].time}</div>
-                    <h3 className="event-title-left">{agenda[activeIndex].title}</h3>
-                    {agenda[activeIndex].desc && (
-                      <p style={{ marginTop: '16px', fontSize: '1.2rem', color: 'var(--text-secondary)', lineHeight: '1.5' }}>
-                        {agenda[activeIndex].desc}
-                      </p>
-                    )}
-                  </motion.div>
-                </AnimatePresence>
+          <div 
+            className="event-horizontal-track" 
+            ref={scrollRef} 
+            onScroll={handleScroll}
+          >
+            {agenda.map((item, index) => (
+              <div 
+                key={index} 
+                className="event-box"
+                style={index === 0 ? { opacity: 0, pointerEvents: 'none' } : {}}
+              >
+                <div className="event-box-icon">
+                  {getEventIcon(item.title)}
+                </div>
+                <div className="event-box-text-container">
+                  <div className="event-box-time">{item.time}</div>
+                  <h3 className="event-box-title">{item.title}</h3>
+                  {item.desc && <p className="event-box-desc">{item.desc}</p>}
+                </div>
               </div>
+            ))}
+          </div>
 
-              <div className="event-col-right">
-                <AnalogClock timeString={agenda[activeIndex].time} />
-              </div>
-              
-            </div>
+          <div 
+            className={`scroll-fade-right ${scrollProgress < 0.99 ? 'visible' : ''}`}
+            onClick={() => scrollRef.current?.scrollBy({ left: 400, behavior: 'smooth' })}
+          >
+            <ChevronRight size={48} strokeWidth={4} />
           </div>
         </div>
+
+
+      {/* Centralized Progress Bar Container */}
+      <div className="section-container">
+        <div className="event-progress-container">
+          <div className="event-progress-track"></div>
+          <div 
+            className="event-progress-fill" 
+            style={{ width: `${Math.max(5, scrollProgress * 100)}%` }}
+          />
+        </div>
       </div>
+
     </section>
   );
 };

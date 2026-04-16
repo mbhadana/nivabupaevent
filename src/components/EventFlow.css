@@ -1,296 +1,235 @@
-.event-flow {
-  background: var(--bg-primary);
+.event-flow-section {
+  padding: 60px 0;
+  background-color: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
 }
 
-.event-flow-sticky-container {
-  position: sticky;
+.event-track-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.scroll-fade-left, .scroll-fade-right {
+  position: absolute;
   top: 0;
-  height: 100vh;
+  bottom: 40px; /* Aligns with track bottom padding */
+  width: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  pointer-events: none; 
-}
-
-.event-flow-section-title {
-  position: absolute;
-  top: 180px;
-  left: 24px;
-  font-size: 3rem;
-  margin: 0;
   z-index: 10;
+  cursor: pointer;
+  color: #00adee;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s ease;
 }
 
-.event-flow-sticky-container .section-container {
+.scroll-fade-left.visible, .scroll-fade-right.visible {
+  opacity: 1;
   pointer-events: auto;
 }
 
-.event-flow-master-card {
-  background: transparent; /* Removed the grey part */
-  border-radius: 0; 
-  padding: 80px 100px;
-  position: relative;
-  width: 100%;
-  box-shadow: none;
-  border: none;
+.scroll-fade-left {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-primary) 0%, rgba(0,0,0,0) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  -webkit-mask-image: linear-gradient(to right, black 40%, transparent 100%);
+  mask-image: linear-gradient(to right, black 40%, transparent 100%);
 }
 
-.event-flow-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
+.scroll-fade-right {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-primary) 0%, rgba(0,0,0,0) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  -webkit-mask-image: linear-gradient(to left, black 40%, transparent 100%);
+  mask-image: linear-gradient(to left, black 40%, transparent 100%);
 }
 
-.event-col-left {
+.scroll-fade-left:hover, .scroll-fade-right:hover {
+  color: var(--primary);
+}
+
+.scroll-fade-left svg, .scroll-fade-right svg {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-fade-left:hover svg {
+  transform: translateX(-5px) scale(1.1);
+}
+.scroll-fade-right:hover svg {
+  transform: translateX(5px) scale(1.1);
+}
+
+.event-horizontal-track {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: 40px; 
+  padding-left: max(var(--padding-std), calc((100vw - 1300px) / 2 + var(--padding-std)));
+  padding-right: max(var(--padding-std), calc((100vw - 1300px) / 2 + var(--padding-std)));
+  /* Hide scrollbar */
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
+}
+
+.event-horizontal-track::-webkit-scrollbar {
+  display: none;
+}
+
+.event-box {
+  flex: 0 0 auto;
+  width: 380px;
+  height: 380px; 
+  scroll-snap-align: start;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: transparent;
+  padding: 40px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   position: relative;
-  min-height: 200px;
+  transition: all 0.3s ease;
 }
 
-.event-time-left {
-  font-family: 'Outfit', sans-serif;
+/* Emulating the wireframe structural overshoot from previous button design on these massive cards */
+.event-box::before {
+  content: '';
+  position: absolute;
+  top: -15px; bottom: -15px;
+  left: 0; right: 0;
+  background: 
+    linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.3) 15px, rgba(255,255,255,0.3) calc(100% - 15px), transparent 100%) left,
+    linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.3) 15px, rgba(255,255,255,0.3) calc(100% - 15px), transparent 100%) right;
+  background-size: 1px 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+.event-box::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  left: -15px; right: -15px;
+  background: 
+    linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 15px, rgba(255,255,255,0.3) calc(100% - 15px), transparent 100%) top,
+    linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 15px, rgba(255,255,255,0.3) calc(100% - 15px), transparent 100%) bottom;
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+.event-box:hover {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.event-box-icon {
+  color: #00adee;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  opacity: 0.8;
+}
+
+/* Force text block to sit perfectly at bottom left matching screenshot */
+.event-box-text-container {
+  margin-top: auto; 
+}
+
+.event-box-time {
+  font-family: 'Oswald', 'Outfit', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
   font-weight: 700;
-  font-size: 1.2rem;
-  color: var(--text-primary);
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.event-box-title {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #00adee;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
   margin-bottom: 12px;
 }
 
-.event-title-left {
-  font-size: 2.8rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+.event-box-desc {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.5;
 }
 
-.event-col-right {
-  display: flex;
-  justify-content: flex-end; /* Shifted to the right */
-  align-items: center;
-}
-
-/* Clock completely integrated to background */
-.analog-clock {
-  width: 360px;
-  height: 360px;
-  background: transparent;
+/* Custom Progress Navigation Bar */
+.event-progress-container {
   position: relative;
-  right: -60px; /* Pull back slightly leftward */
-  transform: scale(0.6); /* Reduced size by 0.5x */
+  width: 100%;
+  height: 2px;
+  margin-top: -10px;
 }
 
-/* Pushed Numbers */
-.clock-marker {
+.event-progress-track {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  text-align: center;
-  padding-top: 35px; /* Heavy inset from ticks */
-  font-family: 'Oswald', 'Outfit', sans-serif; /* Condensed robust sans per screenshot */
-  font-weight: 700;
-  font-size: 1.8rem;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
 }
 
-.clock-number {
-  color: var(--text-primary);
-}
-
-/* Tick marks bound to exterior edge */
-.clock-marker-tick {
+.event-progress-fill {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-/* Soft 60 minute ticks */
-.clock-marker-tick::before {
-  content: '';
-  position: absolute;
-  top: 0px; /* Locked to literal edge */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 2px;
-  height: 12px;
-  background: rgba(255, 255, 255, 0.3);
-}
-
-/* Bold hour ticks */
-.clock-marker-tick.accent::before {
-  height: 20px;
-  width: 4px;
-  background: var(--text-primary);
-}
-
-/* Elevated Flat Trapezoidal Hands */
-.clock-hand-hour-wrapper {
-  position: absolute;
-  bottom: 50%;
-  left: 50%;
-  width: 14px;
-  height: 80px;
-  transform-origin: bottom center;
-  z-index: 5;
-  filter: drop-shadow(4px 10px 15px rgba(0,0,0,0.8));
-}
-
-.clock-hand-front-hour {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 14px;
-  height: 80px;
-  background: #ffffff;
-  clip-path: polygon(15% 0, 85% 0, 100% 100%, 0 100%); /* Slight taper to a flat squared tip */
-}
-
-.clock-hand-tail-hour {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 14px;
-  height: 25px;
-  background: #ffffff;
-}
-
-.clock-hand-minute-wrapper {
-  position: absolute;
-  bottom: 50%;
-  left: 50%;
-  width: 12px;
-  height: 125px;
-  transform-origin: bottom center;
-  z-index: 6;
-  filter: drop-shadow(6px 15px 20px rgba(0,0,0,0.9));
-}
-
-.clock-hand-front-minute {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 12px;
-  height: 125px;
-  background: #ffffff;
-  clip-path: polygon(25% 0, 75% 0, 100% 100%, 0 100%); /* Slight taper to flat squared tip */
-}
-
-.clock-hand-tail-minute {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 12px;
-  height: 35px;
-  background: #ffffff;
-}
-
-.clock-hand-ring {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, 50%);
-  width: 24px;
-  height: 24px;
-  border: 5px solid #ffffff;
-  background: var(--bg-primary); /* Matching pure black background instead of grey */
-  border-radius: 50%;
-  z-index: 2;
+  height: 2px;
+  background: #00adee;
+  transition: width 0.1s linear;
 }
 
 @media (max-width: 768px) {
-  .event-flow-section-title {
-    font-size: 1.6rem;
-    top: 60px; /* Shifted downward */
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    width: 100%;
+  .event-box {
+    width: 155px;
+    height: 220px;
+    padding: 16px;
   }
-
-  .event-flow-master-card {
-    padding: 30px 16px;
-    border-radius: 0;
+  .event-box-time {
+    font-size: 0.7rem;
+    margin-bottom: 8px;
   }
-
-  .event-flow-header {
-    flex-direction: column;
-    gap: 30px;
-    text-align: center;
-    margin-bottom: 40px;
-  }
-
-  .event-title-left {
-    font-size: 1.6rem;
-  }
-
-  .event-col-right {
-    justify-content: center;
-  }
-
-  .analog-clock {
-    width: 200px;
-    height: 200px;
-    right: 0;
-    transform: none;
-    margin: 0 auto;
-  }
-
-  .clock-marker {
+  .event-box-title {
     font-size: 1.1rem;
-    padding-top: 18px;
+    margin-bottom: 8px;
   }
-
-  /* Scale down needles for 200px mobile clock */
-  .clock-hand-hour-wrapper, .clock-hand-front-hour {
-    width: 8px;
-    height: 45px;
+  .event-box-desc {
+    font-size: 0.7rem;
+    line-height: 1.4;
   }
-  .clock-hand-tail-hour {
-    width: 8px;
-    height: 14px;
+  .event-icon-wrapper svg {
+    width: 22px;
+    height: 22px;
   }
-  .clock-hand-minute-wrapper, .clock-hand-front-minute {
-    width: 6px;
-    height: 70px;
+  .event-flow-section {
+    padding: 60px 0;
   }
-  .clock-hand-tail-minute {
-    width: 6px;
-    height: 20px;
+  .event-flow-section .section-title {
+    text-align: center;
   }
-  .clock-hand-ring {
-    width: 14px;
-    height: 14px;
-    border-width: 3px;
+  .scroll-fade-left svg,
+  .scroll-fade-right svg {
+    width: 24px !important;
+    height: 24px !important;
+    stroke-width: 2px !important;
   }
-
-  .event-flow-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .event-card {
-    padding: 20px;
-  }
-
-  .event-card-time {
-    font-size: 0.85rem;
-  }
-
-  .event-card-title {
-    font-size: 1rem;
-  }
-
-  .event-card-desc {
-    font-size: 0.85rem;
+  .scroll-fade-left,
+  .scroll-fade-right {
+    width: 60px !important;
   }
 }

@@ -2,15 +2,33 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Highlights.css';
 
+const renderParticipants = (participants) => (
+  <div style={{ 
+    display: 'grid',
+    gridTemplateColumns: 'repeat(2, 1fr)',
+    rowGap: '12px',
+    columnGap: '20px', 
+    marginTop: '40px',
+    fontSize: '0.55em'
+  }}>
+    {participants.map((p, i) => (
+      <div key={i} style={{ display: 'flex', alignItems: 'baseline', flexWrap: 'wrap' }}>
+        <span style={{ color: '#fff', fontWeight: '500', lineHeight: '1.2' }}>{p.name}</span>
+        <span style={{ fontSize: '0.7em', color: 'rgba(255,255,255,0.5)', lineHeight: '1.2', marginLeft: '6px' }}>{p.firm}</span>
+      </div>
+    ))}
+  </div>
+);
+
 const highlightData = [
   {
     category: 'IN CONVERSATION',
     title: (
       <>
         Amitabh Chaudhry
-        <div style={{ fontSize: '0.65em', marginTop: '4px', fontWeight: '400', color: 'var(--text-secondary)', lineHeight: '1.4' }}>MD & CEO Axis Bank</div>
-        <div style={{ marginTop: '16px' }}><span style={{ fontSize: '0.65em', fontWeight: '400', color: 'var(--text-secondary)' }}>with</span> Krishnan Ramachandran</div>
-        <div style={{ fontSize: '0.65em', marginTop: '4px', fontWeight: '400', color: 'var(--text-secondary)', lineHeight: '1.4' }}>CEO & MD, Niva Bupa Health Insurance</div>
+        <div style={{ fontSize: '0.65em', marginTop: '24px', fontWeight: '400', color: '#fff', lineHeight: '1.4' }}>MD & CEO Axis Bank</div>
+        <div style={{ marginTop: '40px' }}><span style={{ fontSize: '0.65em', fontWeight: '400', color: '#fff' }}>with</span> Krishnan Ramachandran</div>
+        <div style={{ fontSize: '0.65em', marginTop: '24px', fontWeight: '400', color: '#fff', lineHeight: '1.4' }}>CEO & MD, Niva Bupa Health Insurance</div>
       </>
     ),
     image: '/IMG_5929.JPG'
@@ -20,7 +38,16 @@ const highlightData = [
     title: (
       <>
         The Missing Link in Loan Protection Strategies:
-        <div style={{ fontSize: '0.65em', marginTop: '4px', fontWeight: '400', color: 'var(--text-secondary)', lineHeight: '1.4' }}>Insurance is not just protection—it's a risk mitigation with revenue lever.</div>
+        <div style={{ fontSize: '0.65em', marginTop: '24px', fontWeight: '400', color: '#fff', lineHeight: '1.4' }}>Insurance is not just protection—it's a risk mitigation with revenue lever.</div>
+        {renderParticipants([
+          { name: 'Nikhil Varma', firm: 'IDFC' },
+          { name: 'Randeep Gandhok', firm: 'SCB' },
+          { name: 'Ashish Sagar', firm: 'HDFC Bank' },
+          { name: 'Sambhat Kumar', firm: 'HSL' },
+          { name: 'Virendra Somwanshi', firm: 'Federal Bank' },
+          { name: 'Subhajit Roy', firm: 'Bandhan Bank' },
+          { name: 'Neeta Bhatt', firm: 'Axis Bank' }
+        ])}
       </>
     ),
     image: '/IMG_5970.JPG'
@@ -30,7 +57,15 @@ const highlightData = [
     title: (
       <>
         AI-Driven Transformation in Insurance:
-        <div style={{ fontSize: '0.65em', marginTop: '4px', fontWeight: '400', color: 'var(--text-secondary)', lineHeight: '1.4' }}>How AI might redefine the very operating model of insurance companies.</div>
+        <div style={{ fontSize: '0.65em', marginTop: '24px', fontWeight: '400', color: '#fff', lineHeight: '1.4' }}>How AI might redefine the very operating model of insurance companies.</div>
+        {renderParticipants([
+          { name: 'Manas Gupta', firm: 'Phone Pe' },
+          { name: 'Sarbvir Singh', firm: 'PB Fintech' },
+          { name: 'Surendra Katariya', firm: 'BFL' },
+          { name: 'Nitish Kumar', firm: 'Poonawalla Fincorp' },
+          { name: 'Vipul Agarwal', firm: 'Axis Bank' },
+          { name: 'Dhirendra Mahyavanshi', firm: 'Turtlemint' }
+        ])}
       </>
     ),
     image: '/IMG_6052.JPG'
@@ -40,7 +75,7 @@ const highlightData = [
     title: (
       <>
         Yashish Dahiya
-        <div style={{ fontSize: '0.65em', marginTop: '4px', fontWeight: '400', color: 'var(--text-secondary)', lineHeight: '1.4' }}>Co-Founder & Group CEO, PolicyBazaar</div>
+        <div style={{ fontSize: '0.65em', marginTop: '24px', fontWeight: '400', color: '#fff', lineHeight: '1.4' }}>Co-Founder & Group CEO, PolicyBazaar</div>
       </>
     ),
     image: '/IMG_6108.JPG'
@@ -50,7 +85,16 @@ const highlightData = [
     title: (
       <>
         Bridging the Trust Deficit in Insurance:
-        <div style={{ fontSize: '0.65em', marginTop: '4px', fontWeight: '400', color: 'var(--text-secondary)', lineHeight: '1.4' }}>How insurers can rebuild trust</div>
+        <div style={{ fontSize: '0.65em', marginTop: '24px', fontWeight: '400', color: '#fff', lineHeight: '1.4' }}>How insurers can rebuild trust</div>
+        {renderParticipants([
+          { name: 'Sajja Chowdhary', firm: 'PB Fintech' },
+          { name: 'Jasmine Kaur', firm: 'Mahindra Finance' },
+          { name: 'Mahesh Dayani', firm: 'SBFC Finance' },
+          { name: 'Arjun Chowdhry', firm: 'Grihum Housing' },
+          { name: 'Roopa Natrajan', firm: 'HDFC Bank' },
+          { name: 'Saurabh Jain', firm: 'SCB' },
+          { name: 'Shirish Patel', firm: 'Gennext' }
+        ])}
       </>
     ),
     image: '/IMG_6248.JPG'
@@ -59,8 +103,15 @@ const highlightData = [
     category: 'PANEL DISCUSSION 4',
     title: (
       <>
-        Winning the Last Mile:
-        <div style={{ fontSize: '0.65em', marginTop: '4px', fontWeight: '400', color: 'var(--text-secondary)', lineHeight: '1.4' }}>Reimagining Insurance Distribution in a Platform Economy</div>
+        Winning the Last Mile
+        <div style={{ fontSize: '0.65em', marginTop: '24px', fontWeight: '400', color: '#fff', lineHeight: '1.4' }}>Reimagining Insurance Distribution in a Platform Economy</div>
+        {renderParticipants([
+          { name: 'Rohit Chugh', firm: 'Capri Global' },
+          { name: 'K Suresh Kumar', firm: 'Fedfina' },
+          { name: 'Kranti Sharma', firm: 'L&T Finance' },
+          { name: 'Gursharan Rai Bansal', firm: 'IPPB' },
+          { name: 'Saumya Chaudhuri', firm: 'IDBI Bank' }
+        ])}
       </>
     ),
     image: '/IMG_5929.JPG'
@@ -70,7 +121,7 @@ const highlightData = [
     title: (
       <>
         Gauranga Das
-        <div style={{ fontSize: '0.65em', marginTop: '4px', fontWeight: '400', color: 'var(--text-secondary)', lineHeight: '1.4' }}>Member of ISKCON's Governing Body Commission</div>
+        <div style={{ fontSize: '0.65em', marginTop: '24px', fontWeight: '400', color: '#fff', lineHeight: '1.4' }}>Member of ISKCON's Governing Body Commission</div>
       </>
     ),
     image: '/IMG_5970.JPG'
@@ -79,8 +130,16 @@ const highlightData = [
     category: 'PANEL DISCUSSION 5',
     title: (
       <>
-        Affordability vs Value in Insurance:
-        <div style={{ fontSize: '0.65em', marginTop: '4px', fontWeight: '400', color: 'var(--text-secondary)', lineHeight: '1.4' }}>How insurers can innovate through new product designs, preventive healthcare initiatives, and technology-driven cost efficiencies.</div>
+        Affordability vs Value in Insurance
+        <div style={{ fontSize: '0.65em', marginTop: '24px', fontWeight: '400', color: '#fff', lineHeight: '1.4' }}>How insurers can innovate through new product designs, preventive healthcare initiatives, and technology-driven cost efficiencies.</div>
+        {renderParticipants([
+          { name: 'Amit Chhabra', firm: 'PB Fintech' },
+          { name: 'Neeraj Purohit', firm: 'Paytm' },
+          { name: 'Ashish Goyal', firm: 'Early Salary' },
+          { name: 'Raul Rebello', firm: 'Mahindra Finance' },
+          { name: 'Dhiraj Reli', firm: 'HSL' },
+          { name: 'Balachander Shekhar', firm: 'Renew Buy' }
+        ])}
       </>
     ),
     image: '/IMG_6052.JPG'
@@ -137,7 +196,7 @@ const Highlights = () => {
         <div className="highlights-sticky-container">
           <div className="section-container" style={{ width: '100%' }}>
             
-            <h2 className="section-title text-gradient" style={{ fontSize: '3rem', marginBottom: '40px' }}>Speaker Highlights</h2>
+            <h2 className="section-title text-gradient" style={{ marginBottom: '40px' }}>Highlights</h2>
             
             <div className="highlights-master-card">
               <div className="highlights-grid-container">
@@ -187,7 +246,7 @@ const Highlights = () => {
       {/* Mobile: Simple stacked list of all highlights */}
       <div className="highlights-mobile">
         <div className="section-container">
-          <h2 className="section-title text-gradient" style={{ fontSize: '2rem', marginBottom: '30px' }}>Speaker Highlights</h2>
+          <h2 className="section-title text-gradient" style={{ marginBottom: '30px' }}>Highlights</h2>
           {highlightData.map((item, idx) => (
             <div key={idx} className="highlights-mobile-card">
               <span className="highlights-category">{item.category}</span>
@@ -204,3 +263,5 @@ const Highlights = () => {
 };
 
 export default Highlights;
+
+

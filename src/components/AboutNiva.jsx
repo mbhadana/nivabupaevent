@@ -10,7 +10,7 @@ const AboutNiva = () => {
             <img src={cityLogo} alt="Niva Bupa Logo" className="about-niva-logo" />
           </div>
           <div className="about-niva-text-side">
-            <h2 className="about-niva-heading">About Niva Bupa Health Insurance</h2>
+            <h2 className="section-title text-gradient" style={{ marginBottom: '20px' }}>About Niva Bupa Health Insurance</h2>
             <p className="about-niva-description">
               One of India's leading standalone health insurers, Niva Bupa is committed to empowering Indians 
               with access to the best healthcare — when they need it most. As India enters its defining decade, 
@@ -20,7 +20,7 @@ const AboutNiva = () => {
               href="https://www.nivabupa.com/" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="about-niva-link"
+              className="btn-unified"
             >
               Explore more →
             </a>

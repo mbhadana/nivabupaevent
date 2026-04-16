@@ -4,13 +4,6 @@ import './Resources.css';
 
 const resourcesData = [
   {
-    title: 'Get Your Photos',
-    desc: 'Relive your favourite moments from the event. Download your photo collection.',
-    linkText: 'Show Photos',
-    linkUrl: '/photos',
-    isRoute: true
-  },
-  {
     title: 'Keynote Speaker Videos',
     desc: 'Revisit impactful perspectives from industry leaders on what the decade demands.',
     linkText: 'Show Videos',
@@ -22,6 +15,13 @@ const resourcesData = [
     desc: 'Gain insights from the most engaging conversations from our panel discussions.',
     linkText: 'Show Videos',
     linkUrl: '/keynotes',
+    isRoute: true
+  },
+  {
+    title: 'Get Your Photos',
+    desc: 'Relive your favourite moments from the event. Download your photo collection.',
+    linkText: 'Show Photos',
+    linkUrl: '/photos',
     isRoute: true
   }
 ];
@@ -51,9 +51,9 @@ const Resources = () => {
               <h3 className="resource-card-title">{item.title}</h3>
               <p className="resource-card-desc">{item.desc}</p>
               {item.isRoute ? (
-                <Link to={item.linkUrl} className="resource-card-link">{item.linkText}</Link>
+                <Link to={item.linkUrl} className="btn-unified">{item.linkText}</Link>
               ) : (
-                <a href={item.linkUrl} className="resource-card-link">{item.linkText}</a>
+                <a href={item.linkUrl} className="btn-unified">{item.linkText}</a>
               )}
             </motion.div>
           ))}

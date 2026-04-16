@@ -61,7 +61,7 @@ html {
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Product Sans', 'Google Sans', sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -69,10 +69,21 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Product Sans', 'Google Sans', sans-serif;
   font-weight: 500;
   color: #00adee;
   letter-spacing: -0.02em;
+}
+
+.section-title {
+  font-size: 2.8rem !important;
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2.2rem !important;
+  }
 }
 
 /* Antigravity Inspired Cards */
@@ -132,6 +143,70 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
   font-weight: 500;
   letter-spacing: -0.02em;
+}
+
+.btn-unified {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  background: #090909;
+  color: #ffffff !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  font-size: 0.9rem;
+  border-radius: 0;
+  border: none;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: fit-content;
+}
+
+/* Left / Right vertical blueprint lines */
+.btn-unified::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  bottom: -15px;
+  left: 0;
+  right: 0;
+  background: 
+    linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.7) 15px, rgba(255,255,255,0.7) calc(100% - 15px), transparent 100%) left,
+    linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.7) 15px, rgba(255,255,255,0.7) calc(100% - 15px), transparent 100%) right;
+  background-size: 0.5px 100%;
+  background-repeat: no-repeat;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+/* Top / Bottom horizontal blueprint lines */
+.btn-unified::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -15px;
+  right: -15px;
+  background: 
+    linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.7) 15px, rgba(255,255,255,0.7) calc(100% - 15px), transparent 100%) top,
+    linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.7) 15px, rgba(255,255,255,0.7) calc(100% - 15px), transparent 100%) bottom;
+  background-size: 100% 0.5px;
+  background-repeat: no-repeat;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.btn-unified:hover {
+  background: #008cc2; /* Slightly darker shade of brand blue */
+  transform: translateY(-2px);
+}
+
+.btn-unified:hover::before,
+.btn-unified:hover::after {
+  opacity: 0.8;
 }
 
 @media (max-width: 768px) {

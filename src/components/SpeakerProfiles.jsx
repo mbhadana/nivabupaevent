@@ -5,16 +5,16 @@ import './SpeakerProfiles.css';
 
 const speakers = [
   {
-    name: 'Yashish Dahiya',
-    title: 'CO-FOUNDER AND GROUP CEO – POLICYBAZAAR',
-    bio: 'Yashish is the visionary co-founder of PolicyBazaar and Paisabazaar, revolutionizing the digital insurance and credit landscape in India. An avid sportsman and seven-time Ironman finisher, he holds degrees from IIT Delhi, IIM Ahmedabad, and INSEAD.',
-    image: '/Yashish Dahiya.jpeg'
-  },
-  {
     name: 'Amitabh Chaudhry',
     title: 'MANAGING DIRECTOR & CHIEF EXECUTIVE OFFICER AT AXIS BANK LTD.',
     bio: 'Amitabh leads Axis Bank as its MD & CEO, overseeing its strategic growth and digital transformation. With a distinguished career at HDFC Standard Life and Infosys, he is an alumnus of BITS Pilani and IIM Ahmedabad.',
     image: '/Amitabh Chaudhry.jpeg'
+  },
+  {
+    name: 'Yashish Dahiya',
+    title: 'CO-FOUNDER AND GROUP CEO – POLICYBAZAAR',
+    bio: 'Yashish is the visionary co-founder of PolicyBazaar and Paisabazaar, revolutionizing the digital insurance and credit landscape in India. An avid sportsman and seven-time Ironman finisher, he holds degrees from IIT Delhi, IIM Ahmedabad, and INSEAD.',
+    image: '/Yashish Dahiya.jpeg'
   },
   {
     name: 'Gauranga Das',
@@ -53,31 +53,29 @@ const SpeakerProfiles = () => {
                 onMouseLeave={() => setActiveIndex(null)}
               >
                 <div className="speaker-card-inner">
-                  <img src={speaker.image} alt={speaker.name} className="speaker-card-img" />
-                  
-                  {/* Plus Icon Trigger */}
-                  <div className={`speaker-plus-icon ${isActive ? 'rotate' : ''}`}>
-                    <Plus size={24} />
-                  </div>
-
-                  {/* Initial Info (Bottom Overlay) */}
-                  {!isActive && (
-                    <div className="speaker-initial-overlay">
-                      <h3 className="speaker-card-name">{speaker.name}</h3>
-                      <p className="speaker-card-title">{speaker.title}</p>
+                  <div className="speaker-image-wrapper">
+                    <img src={speaker.image} alt={speaker.name} className="speaker-card-img" />
+                    
+                    {/* Plus Icon Trigger */}
+                    <div className={`speaker-plus-icon ${isActive ? 'rotate' : ''}`}>
+                      <Plus size={24} />
                     </div>
-                  )}
 
-                  {/* Slide-up Biography Overlay */}
-                  <div className={`speaker-bio-overlay ${isActive ? 'visible' : ''}`}>
-                    <div className="bio-overlay-content">
-                      <h3 className="bio-name">{speaker.name}</h3>
-                      <p className="bio-title">{speaker.title}</p>
-                      <div className="bio-divider"></div>
-                      <div className="bio-scroll-area">
-                        <p className="bio-text">{speaker.bio}</p>
+                    {/* Slide-up Biography Overlay */}
+                    <div className={`speaker-bio-overlay ${isActive ? 'visible' : ''}`}>
+                      <div className="bio-overlay-content">
+                        <div className="bio-divider"></div>
+                        <div className="bio-scroll-area">
+                          <p className="bio-text">{speaker.bio}</p>
+                        </div>
                       </div>
                     </div>
+                  </div>
+
+                  {/* Info Below */}
+                  <div className="speaker-info-below">
+                    <h3 className="speaker-card-name-below">{speaker.name}</h3>
+                    <p className="speaker-card-title-below">{speaker.title}</p>
                   </div>
                 </div>
               </motion.div>

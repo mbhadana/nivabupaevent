@@ -38,12 +38,17 @@ const Hero = () => {
             </motion.div>
             
             <h1 className="hero-title">
-              A decade of transformation. A decade of momentum.
+              A decade of momentum.<br/>
+              A decade of transformation.
             </h1>
-          </div>
-          
 
-          
+            <div className="hero-buttons-grid">
+              <motion.a href="#agenda" className="hero-wireframe-btn" initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 0.6 }}>Agenda</motion.a>
+              <motion.a href="#speakers" className="hero-wireframe-btn" initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.95, duration: 0.6 }}>Speakers</motion.a>
+              <motion.a href="#highlights" className="hero-wireframe-btn" initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.1, duration: 0.6 }}>Highlights</motion.a>
+              <motion.a href="#whitepaper" className="hero-wireframe-btn" initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.25, duration: 0.6 }}>HPS White Paper Report</motion.a>
+            </div>
+          </div>
         </motion.div>
 
         <motion.div 

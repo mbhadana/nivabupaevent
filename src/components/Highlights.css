@@ -1,7 +1,5 @@
 .highlights {
   width: 100%;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .highlights-desktop {
@@ -28,9 +26,10 @@
   display: flex;
   align-items: stretch;
   justify-content: center;
+  height: 550px;
+  max-height: 80vh;
   gap: 0;
-  border-left: 1px solid rgba(255, 255, 255, 0.15);
-  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  border-right: none;
 }
 
 .highlights-col-left {
@@ -40,8 +39,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 80px 60px;
-  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 80px 80px 80px 0;
+  border-right: none;
 }
 
 .highlights-text-display {
@@ -57,13 +56,16 @@
   text-transform: uppercase;
   letter-spacing: 2px;
   opacity: 0.8;
+  display: inline-block;
+  transform: translateY(20px);
+  margin-bottom: 40px;
 }
 
 .highlights-title {
   font-size: 2.2rem;
   font-weight: 600;
   line-height: 1.25;
-  color: #ffffff;
+  color: #00adee;
   letter-spacing: -0.5px;
 }
 
@@ -72,11 +74,14 @@
   max-width: 50%;
   display: flex;
   align-items: stretch;
+  padding-left: 80px;
 }
 
 .highlights-image-container {
-  width: 100%;
   height: 100%;
+  width: auto;
+  aspect-ratio: 4 / 3;
+  flex-shrink: 0;
   overflow: hidden;
   border: none;
   border-radius: 0;
@@ -130,8 +135,74 @@
     padding: 60px 0;
   }
 
+  .highlights-mobile .section-title {
+    text-align: center;
+  }
+
+  /* Apply Global Button Brutalist Theme to Highlights cards */
+  .highlights-mobile-card {
+    background: #090909;
+    border: none;
+    border-radius: 0;
+    padding-top: 30px;
+    margin-bottom: 50px;
+    position: relative;
+  }
+
+  /* Emulate the blueprint wireframe structural overshoot onto the mobile cards */
+  .highlights-mobile-card::before {
+    content: '';
+    position: absolute;
+    top: -15px; bottom: -15px;
+    left: 0; right: 0;
+    background: 
+      linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.3) 15px, rgba(255,255,255,0.3) calc(100% - 15px), transparent 100%) left,
+      linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.3) 15px, rgba(255,255,255,0.3) calc(100% - 15px), transparent 100%) right;
+    background-size: 1px 100%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .highlights-mobile-card::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    left: -15px; right: -15px;
+    background: 
+      linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 15px, rgba(255,255,255,0.3) calc(100% - 15px), transparent 100%) top,
+      linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 15px, rgba(255,255,255,0.3) calc(100% - 15px), transparent 100%) bottom;
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  /* Push text inside the box away from the new borders */
+  .highlights-mobile-card .highlights-category,
+  .highlights-mobile-card .highlights-title {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
   .highlights-title {
     font-size: 1.6rem;
+  }
+
+  /* Push Category away from text */
+  .highlights-mobile-card .highlights-category {
+    margin-bottom: 32px !important;
+    display: block !important;
+  }
+
+  /* Crush massive inline react margins inside the titles strictly on mobile */
+  .highlights-mobile-card .highlights-title > div {
+    margin-top: 6px !important;
+  }
+
+  /* Give a tiny bit of breathing room before the "with Krishnan" line or Panel Grid */
+  .highlights-mobile-card .highlights-title > div:nth-of-type(2) {
+    margin-top: 20px !important;
   }
 
   .highlights-image-container {

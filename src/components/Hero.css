@@ -36,28 +36,31 @@
 }
 
 .hero-logo-wrapper {
+  margin-top: 100px;
   margin-bottom: 8px;
   display: flex;
   align-items: center;
+  align-self: center;
 }
 
 .hero-logo-img {
-  margin-top: 100px;
-  margin-bottom: -100px;
-  max-width: 400px;
+  max-width: 440px;
   height: auto;
   object-fit: contain;
 }
 
 .hero-title {
-  margin: 100px 0 0 0;
-  line-height: 1.2;
+  margin: 40px 0 0 0;
+  line-height: 1.6;
   font-size: 1.2rem;
   white-space: nowrap;
   color: #ffffff;
   font-weight: 500;
-  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
   opacity: 0.9;
+  text-align: center;
+  align-self: center;
 }
 
 .hero-subtitle {
@@ -92,7 +95,7 @@
 }
 
 .hero-visual {
-  flex: 0 0 auto;
+  flex: 0 0 50vw;
   margin-top: 96px; /* Approx 76px header + 20px gap */
   margin-bottom: 20px; /* Universally forced 20px gap from the bottom of the screen */
   display: flex;
@@ -101,17 +104,74 @@
 }
 
 .hero-image-card {
-  width: auto;
+  width: 100%;
   height: 100%;
-  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
   background: var(--surface);
-  border: 1px solid var(--border-color);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   overflow: hidden;
   position: relative;
-  border-radius: var(--radius-card); 
+  border-radius: 0; 
   /* Force hardware accelerated mask clipping to solve Safari/Chrome sharp corner bleed during slider animation */
   transform: translateZ(0);
-  -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+.hero-buttons-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 24px;
+  width: 100%;
+}
+
+.hero-wireframe-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #ffffff !important;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 14px 24px;
+  border: none;
+  background: #090909;
+  position: relative;
+  transition: all 0.3s ease;
+  min-height: 50px;
+}
+
+.hero-wireframe-btn::before {
+  content: '';
+  position: absolute;
+  top: -12px; bottom: -12px;
+  left: 0; right: 0;
+  background: 
+    linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.3) 12px, rgba(255,255,255,0.3) calc(100% - 12px), transparent 100%) left,
+    linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.3) 12px, rgba(255,255,255,0.3) calc(100% - 12px), transparent 100%) right;
+  background-size: 1px 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+.hero-wireframe-btn::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  left: -12px; right: -12px;
+  background: 
+    linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 12px, rgba(255,255,255,0.3) calc(100% - 12px), transparent 100%) top,
+    linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 12px, rgba(255,255,255,0.3) calc(100% - 12px), transparent 100%) bottom;
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+.hero-wireframe-btn:hover {
+  background: #008cc2;
+  transform: translateY(-2px);
 }
 
 .hero-slide-img {
@@ -144,6 +204,7 @@
 
   .hero-content-inner {
     align-items: center; /* Center the logo and text */
+    width: 100%;
   }
 
   .hero-logo-img {
@@ -153,10 +214,11 @@
   }
 
   .hero-title {
-    font-size: 1.3rem; /* Slightly larger base */
+    font-size: 1.1rem; /* Safely scaled down */
     white-space: normal; /* Fixes massive text overflow bug */
     margin-top: 20px; /* Reset top margin */
     text-align: center;
+    letter-spacing: 0.05em; /* Wipe out massive desktop stretch */
   }
 
   .hero-subtitle {
@@ -174,6 +236,19 @@
     text-align: center;
   }
 
+  .hero-buttons-grid {
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .hero-wireframe-btn {
+    font-size: 0.7rem;
+    padding: 12px 8px;
+    letter-spacing: 0;
+    min-height: 44px;
+    line-height: 1.4;
+  }
+
   .hero-visual {
     justify-content: center;
     margin-top: 20px;
@@ -184,6 +259,6 @@
   .hero-image-card {
     width: 100%;
     height: auto;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 4 / 3;
   }
 }
