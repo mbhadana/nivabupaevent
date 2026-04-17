@@ -130,17 +130,11 @@ const KeynotesPage = () => {
                   <h2 className="panel-title">{panel.title}</h2>
 
                   <h5 className="panel-section-title">PANELISTS</h5>
-                  <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(2, 1fr)',
-                    gap: '20px 24px',
-                    width: '100%',
-                    marginBottom: '40px'
-                  }}>
+                  <div className="panelists-grid-names">
                     {panel.panelists.map((person, idx) => (
-                      <div key={idx} style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
-                        <span style={{ color: '#fff', fontSize: '1.25rem', fontWeight: '500' }}>{person.name}</span>
-                        <span style={{ color: '#777', fontSize: '0.85rem', fontWeight: '700' }}>{person.role}</span>
+                      <div key={idx} className="panelist-name-block">
+                        <span className="p-name">{person.name}</span>
+                        <span className="p-role">{person.role}</span>
                       </div>
                     ))}
                   </div>

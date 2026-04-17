@@ -45,9 +45,9 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Toggle */}
-        <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        <div className="menu-toggle" role="button" tabIndex={0} onClick={() => setIsMenuOpen(!isMenuOpen)}>
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
