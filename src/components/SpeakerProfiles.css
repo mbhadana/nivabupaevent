@@ -191,7 +191,8 @@
   .speaker-profiles {
     margin-top: 0;
     border-top: none;
-    padding-top: 20px; /* Removing the massive empty space beneath the clock */
+    padding-top: 20px;
+    padding-bottom: 0;
   }
 
   .speaker-section-title {
@@ -214,9 +215,35 @@
   .speaker-card {
     aspect-ratio: auto;
     height: auto;
-    background: transparent; /* Remove solid background */
-    border: 1px solid rgba(255, 255, 255, 0.15); /* Just stroke */
-    border-radius: 8px; /* Slight polish */
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 0;
+  }
+
+  .speaker-card::before {
+    content: '';
+    position: absolute;
+    top: -12px; bottom: -12px;
+    left: 0; right: 0;
+    background: 
+      linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.3) 12px, rgba(255,255,255,0.3) calc(100% - 12px), transparent 100%) left,
+      linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.3) 12px, rgba(255,255,255,0.3) calc(100% - 12px), transparent 100%) right;
+    background-size: 1px 100%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+  }
+
+  .speaker-card::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    left: -12px; right: -12px;
+    background: 
+      linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 12px, rgba(255,255,255,0.3) calc(100% - 12px), transparent 100%) top,
+      linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 12px, rgba(255,255,255,0.3) calc(100% - 12px), transparent 100%) bottom;
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    pointer-events: none;
   }
   
   .speaker-card-inner {

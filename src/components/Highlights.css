@@ -132,7 +132,7 @@
   /* Show mobile stacked layout */
   .highlights-mobile {
     display: block;
-    padding: 60px 0;
+    padding: 20px 0 0 0;
   }
 
   .highlights-mobile .section-title {
@@ -147,6 +147,10 @@
     padding-top: 30px;
     margin-bottom: 50px;
     position: relative;
+  }
+
+  .highlights-mobile-card:last-child {
+    margin-bottom: 0;
   }
 
   /* Emulate the blueprint wireframe structural overshoot onto the mobile cards */

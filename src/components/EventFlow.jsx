@@ -6,27 +6,26 @@ import './EventFlow.css';
 const agenda = [
   { time: ' ', title: ' ', desc: '' },
   { time: '9:00 AM – 10:00 AM', title: 'Registration + Breakfast', desc: '' },
-  { time: '10:00 AM – 10:45 AM', title: 'Welcome Address', desc: 'Krishnan Ramachandran, CEO & MD, Niva Bupa Health Insurance' },
-  { time: '10:45 AM – 11:15 AM', title: 'In Conversation', desc: 'Amitabh Chaudhry, MD & CEO Axis Bank with Krishnan Ramachandran, CEO & MD, Niva Bupa Health Insurance' },
-  { time: '11:15 AM – 12:00 PM', title: 'Panel Discussion 1', desc: 'The Missing Link in Loan Protection Strategies' },
-  { time: '12:00 PM – 12:45 PM', title: 'Panel Discussion 2', desc: 'AI-Driven Transformation in Insurance' },
-  { time: '12:45 PM – 1:30 PM', title: 'Lunch', desc: '' },
-  { time: '1:30 PM – 2:00 PM', title: 'Keynote Address', desc: 'Yashish Dahiya, Co-Founder & Group CEO, PolicyBazaar' },
-  { time: '2:00 PM – 2:45 PM', title: 'Panel Discussion 3', desc: 'Bridging the Trust Deficit in Insurance' },
-  { time: '2:45 PM – 3:30 PM', title: 'Panel Discussion 4', desc: 'Winning the Last Mile' },
-  { time: '3:30 PM – 4:30 PM', title: 'Keynote Speaker', desc: "Gauranga Das, Member of ISKCON's Governing Body Commission" },
+  { time: '10:05 AM – 10:45 AM', title: 'Welcome Address', desc: 'by Krishnan Ramachandran, MD & CEO - Niva Bupa & Young India Whitepaper Launch' },
+  { time: '10:45 AM – 11:15 AM', title: 'In Conversation', desc: 'Krishnan Ramachandran, MD & CEO - Niva Bupa in conversation with Amitabh Chaudhry, MD & CEO - Axis Bank' },
+  { time: '11:15 AM – 12:00 PM', title: 'Discussion', desc: 'The Missing Link in Loan Protection Strategies' },
+  { time: '12:00 PM – 12:45 PM', title: 'Discussion', desc: 'AI-Driven Transformation in Insurance' },
+  { time: '12:45 PM – 1:30 PM', title: 'Lunch Break', desc: '' },
+  { time: '1:30 PM – 2:00 PM', title: 'In Conversation', desc: 'Ankur Kharbanda, Executive Director & CBO - Niva Bupa in conversation with Yashish Dahiya, Co-Founder & CEO - PolicyBazaar' },
+  { time: '2:00 PM – 2:45 PM', title: 'Discussion', desc: 'Bridging the Trust Deficit in Insurance' },
+  { time: '2:45 PM – 3:30 PM', title: 'Discussion', desc: 'Winning the Last Mile' },
+  { time: '3:30 PM – 4:30 PM', title: 'In Conversation', desc: 'Ankur Kharbanda, Executive Director & CBO - Niva Bupa in conversation with Gauranga Das Ji, Monk & Spiritual Leader, ISKCON' },
   { time: '4:30 PM – 5:00 PM', title: 'Tea Break', desc: '' },
-  { time: '5:00 PM – 5:45 PM', title: 'Panel Discussion 5', desc: 'Affordability vs Value in Insurance' },
-  { time: '5:45 PM – 6:45 PM', title: 'Stand Up Comedian Show', desc: 'Gaurav Gupta' },
-  { time: '6:45 PM – 7:30 PM', title: 'Awards & Vote of Thanks', desc: '' },
-  { time: '7:35 PM onwards', title: 'Dinner & Cocktails', desc: '' }
+  { time: '5:00 PM – 5:45 PM', title: 'Discussion', desc: 'Affordability vs Value in Insurance' },
+  { time: '5:45 PM – 6:45 PM', title: 'Laughter Therapy', desc: 'with Gaurav Gupta' },
+  { time: '6:45 PM – 7:30 PM', title: 'Thank You Awards', desc: '' }
 ];
 
 const getEventIcon = (title) => {
   const lower = title.toLowerCase();
   if (lower.includes('breakfast') || lower.includes('tea')) return <Coffee size={32} strokeWidth={1} />;
   if (lower.includes('lunch') || lower.includes('dinner')) return <Utensils size={32} strokeWidth={1} />;
-  if (lower.includes('comedian')) return <MicVocal size={32} strokeWidth={1} />;
+  if (lower.includes('comedian') || lower.includes('laughter')) return <MicVocal size={32} strokeWidth={1} />;
   if (lower.includes('keynote')) return <Star size={32} strokeWidth={1} />;
   if (lower.includes('awards')) return <Trophy size={32} strokeWidth={1} />;
   if (lower.includes('discussion') || lower.includes('panel')) return <UsersRound size={32} strokeWidth={1} />;
@@ -34,6 +33,22 @@ const getEventIcon = (title) => {
   if (lower.includes('address')) return <Mic size={32} strokeWidth={1} />;
   if (lower.includes('registration')) return <UserPlus size={32} strokeWidth={1} />;
   return <FileText size={32} strokeWidth={1} />;
+};
+
+const formatTimeMobile = (timeStr) => {
+  if (typeof timeStr !== 'string' || !timeStr.includes('–')) return timeStr;
+  const parts = timeStr.split(' – ');
+  if (parts.length === 2) {
+    const match = parts[0].match(/^(.*?)\s*(AM|PM)$/i);
+    if (match) {
+      return (
+        <>
+          {match[1]}<span className="mobile-hide-ampm"> {match[2]}</span> – {parts[1]}
+        </>
+      );
+    }
+  }
+  return timeStr;
 };
 
 const EventFlow = () => {
@@ -87,7 +102,7 @@ const EventFlow = () => {
                   {getEventIcon(item.title)}
                 </div>
                 <div className="event-box-text-container">
-                  <div className="event-box-time">{item.time}</div>
+                  <div className="event-box-time">{formatTimeMobile(item.time)}</div>
                   <h3 className="event-box-title">{item.title}</h3>
                   {item.desc && <p className="event-box-desc">{item.desc}</p>}
                 </div>

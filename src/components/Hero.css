@@ -169,9 +169,16 @@
   pointer-events: none;
 }
 
-.hero-wireframe-btn:hover {
+@media (hover: hover) {
+  .hero-wireframe-btn:hover {
+    background: #008cc2;
+    transform: translateY(-2px);
+  }
+}
+
+.hero-wireframe-btn:active {
   background: #008cc2;
-  transform: translateY(-2px);
+  transform: translateY(0);
 }
 
 .hero-slide-img {

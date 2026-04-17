@@ -86,7 +86,7 @@
 .event-box {
   flex: 0 0 auto;
   width: 380px;
-  height: 380px; 
+  min-height: 380px; 
   scroll-snap-align: start;
   border: 1px solid rgba(255, 255, 255, 0.15);
   background: transparent;
@@ -138,9 +138,11 @@
   opacity: 0.8;
 }
 
-/* Force text block to sit perfectly at bottom left matching screenshot */
+/* Dynamic text block naturally wrapping content and flush with the floor */
 .event-box-text-container {
   margin-top: auto; 
+  display: flex;
+  flex-direction: column;
 }
 
 .event-box-time {
@@ -154,7 +156,7 @@
 }
 
 .event-box-title {
-  font-size: 2.1rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: #00adee;
   line-height: 1.15;
@@ -195,17 +197,23 @@
 }
 
 @media (max-width: 768px) {
+  .event-horizontal-track {
+    gap: 16px;
+  }
   .event-box {
-    width: 155px;
-    height: 220px;
-    padding: 16px;
+    width: 168px;
+    min-height: 220px;
+    padding: 14px;
   }
   .event-box-time {
     font-size: 0.7rem;
     margin-bottom: 8px;
   }
+  .mobile-hide-ampm {
+    display: none;
+  }
   .event-box-title {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     margin-bottom: 8px;
   }
   .event-box-desc {
@@ -217,7 +225,7 @@
     height: 22px;
   }
   .event-flow-section {
-    padding: 60px 0;
+    padding: 60px 0 0 0;
   }
   .event-flow-section .section-title {
     text-align: center;
