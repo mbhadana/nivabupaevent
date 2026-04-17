@@ -226,4 +226,55 @@ h1, h2, h3, h4, h5, h6 {
   .text-title {
     font-size: 1.6rem;
   }
+}/* Global Elevated 'Pop-Up' Buttons - Matte 3D Style */
+button,
+a[class*="btn"],
+button[class*="btn"],
+.hero-wireframe-btn,
+.btn-unified {
+  background-color: #1a1a1a !important;
+  color: #eeeeee !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 50px !important;
+  /* Distinct, strong white-to-black gradient ambient shadow scaled precisely to 25% */
+  box-shadow: 0 6px 20px -2px rgba(255, 255, 255, 0.25), 0 2px 6px -1px rgba(255, 255, 255, 0.15) !important;
+  padding: 10px 24px !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.05em !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease !important;
+  transform: translateY(0);
 }
+
+@media (hover: hover) {
+  button:hover,
+  a[class*="btn"]:hover,
+  button[class*="btn"]:hover,
+  .hero-wireframe-btn:hover,
+  .btn-unified:hover {
+    transform: translateY(-2px) !important;
+    background-color: #00adee !important;
+    border-color: #00adee !important;
+    color: #ffffff !important;
+    box-shadow: 0 8px 24px -2px rgba(0, 173, 238, 0.5), 0 4px 8px -1px rgba(0, 173, 238, 0.3) !important; 
+  }
+}
+
+button:active,
+a[class*="btn"]:active,
+button[class*="btn"]:active,
+.hero-wireframe-btn:active,
+.btn-unified:active {
+  /* Button compresses deeper and the ambient white glow tightens */
+  transform: translateY(2px) !important;
+  box-shadow: 0 2px 6px -1px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Hide legacy brutalist wireframe lines to neatly support the smooth pill contour */
+.btn-unified::before,
+.btn-unified::after,
+.hero-wireframe-btn::before,
+.hero-wireframe-btn::after {
+  display: none !important;
+}
+

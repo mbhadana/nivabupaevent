@@ -22,7 +22,7 @@ const renderParticipants = (participants) => (
 
 const highlightData = [
   {
-    category: 'IN CONVERSATION',
+    category: 'FIRESIDE CHAT',
     title: (
       <>
         Amitabh Chaudhry
@@ -34,7 +34,7 @@ const highlightData = [
     image: '/IMG_5929.JPG'
   },
   {
-    category: 'PANEL DISCUSSION 1',
+    category: 'DISCUSSION 1',
     title: (
       <>
         The Missing Link in Loan Protection Strategies:
@@ -53,7 +53,7 @@ const highlightData = [
     image: '/IMG_5970.JPG'
   },
   {
-    category: 'PANEL DISCUSSION 2',
+    category: 'DISCUSSION 2',
     title: (
       <>
         AI-Driven Transformation in Insurance:
@@ -71,17 +71,19 @@ const highlightData = [
     image: '/IMG_6052.JPG'
   },
   {
-    category: 'KEYNOTE ADDRESS',
+    category: 'FIRESIDE CHAT',
     title: (
       <>
-        Yashish Dahiya
-        <div style={{ fontSize: '0.65em', marginTop: '24px', fontWeight: '400', color: '#fff', lineHeight: '1.4' }}>Co-Founder & Group CEO, PolicyBazaar</div>
+        Ankur Kharbanda
+        <div style={{ fontSize: '0.65em', marginTop: '24px', fontWeight: '400', color: '#fff', lineHeight: '1.4' }}>Executive Director & CBO - Niva Bupa</div>
+        <div style={{ marginTop: '40px' }}><span style={{ fontSize: '0.65em', fontWeight: '400', color: '#fff' }}>in conversation with</span> Yashish Dahiya</div>
+        <div style={{ fontSize: '0.65em', marginTop: '24px', fontWeight: '400', color: '#fff', lineHeight: '1.4' }}>Chairman PB Fintech</div>
       </>
     ),
     image: '/IMG_6108.JPG'
   },
   {
-    category: 'PANEL DISCUSSION 3',
+    category: 'DISCUSSION 3',
     title: (
       <>
         Bridging the Trust Deficit in Insurance:
@@ -100,7 +102,7 @@ const highlightData = [
     image: '/IMG_6248.JPG'
   },
   {
-    category: 'PANEL DISCUSSION 4',
+    category: 'DISCUSSION 4',
     title: (
       <>
         Winning the Last Mile
@@ -117,17 +119,19 @@ const highlightData = [
     image: '/IMG_5929.JPG'
   },
   {
-    category: 'KEYNOTE SPEAKER',
+    category: 'FIRESIDE CHAT',
     title: (
       <>
-        Gauranga Das
-        <div style={{ fontSize: '0.65em', marginTop: '24px', fontWeight: '400', color: '#fff', lineHeight: '1.4' }}>Member of ISKCON's Governing Body Commission</div>
+        Ankur Kharbanda
+        <div style={{ fontSize: '0.65em', marginTop: '24px', fontWeight: '400', color: '#fff', lineHeight: '1.4' }}>Executive Director & CBO - Niva Bupa</div>
+        <div style={{ marginTop: '40px' }}><span style={{ fontSize: '0.65em', fontWeight: '400', color: '#fff' }}>in conversation with</span> Gauranga Das Ji</div>
+        <div style={{ fontSize: '0.65em', marginTop: '24px', fontWeight: '400', color: '#fff', lineHeight: '1.4' }}>Monk & Spiritual Leader, ISKCON</div>
       </>
     ),
     image: '/IMG_5970.JPG'
   },
   {
-    category: 'PANEL DISCUSSION 5',
+    category: 'DISCUSSION 5',
     title: (
       <>
         Affordability vs Value in Insurance
@@ -143,6 +147,16 @@ const highlightData = [
       </>
     ),
     image: '/IMG_6052.JPG'
+  },
+  {
+    category: 'LAUGHTER THERAPY',
+    title: (
+      <>
+        Gaurav Gupta
+        <div style={{ fontSize: '0.65em', marginTop: '24px', fontWeight: '400', color: '#fff', lineHeight: '1.4' }}>Stand Up Comedian</div>
+      </>
+    ),
+    image: '/Gaurav-Gupta-2026-WEB.jpeg'
   }
 ];
 

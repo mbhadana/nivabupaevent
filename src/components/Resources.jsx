@@ -4,14 +4,14 @@ import './Resources.css';
 
 const resourcesData = [
   {
-    title: 'Keynote Speaker Videos',
+    title: 'Fireside Chat Videos',
     desc: 'Revisit impactful perspectives from industry leaders on what the decade demands.',
     linkText: 'Show Videos',
     linkUrl: '/speakers',
     isRoute: true
   },
   {
-    title: 'Panel Discussion Highlights',
+    title: 'Discussion Highlights',
     desc: 'Gain insights from the most engaging conversations from our panel discussions.',
     linkText: 'Show Videos',
     linkUrl: '/keynotes',

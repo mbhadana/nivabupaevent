@@ -4,73 +4,108 @@ const keynotesData = [
   {
     id: 1,
     index: "01",
-    category: "PANEL DISCUSSION 1",
-    title: "Fireside Chat: AI-Driven Transformation in Financial Services",
+    category: "DISCUSSION 1",
+    title: "The Missing Link in Loan Protection Strategies:",
     panelists: [
-      { name: "Mr. Amitabh Chaudhry", role: "MD & CEO, Axis Bank" },
-      { name: "Mr. Krishnan Ramachandran", role: "MD & CEO, Niva Bupa" }
+      { name: "Nikhil Varma", role: "IDFC" },
+      { name: "Ashish Sagar", role: "HDFC Bank" },
+      { name: "Virendra Somwanshi", role: "Federal Bank" },
+      { name: "Neeta Bhatt", role: "Axis Bank" },
+      { name: "Randeep Gandhok", role: "SCB" },
+      { name: "Sambhat Kumar", role: "HSL" },
+      { name: "Subhajit Roy", role: "Bandhan Bank" }
     ],
-    overview: "Industry leaders explored how AI-driven claims processing, telemedicine platforms, and data analytics are reshaping health insurance in India — reducing turnaround times while maintaining the human touch in critical care decisions.",
+    overview: "Insurance is not just protection—it's a risk mitigation with revenue lever.",
     takeaways: [
-      "AI-powered claims processing can reduce settlement time by 70%",
-      "Telemedicine integration is no longer optional for modern insurers",
-      "Data-driven personalization will define the next decade of health insurance"
+      "Loan protection acts as a critical revenue lever for financial institutions.",
+      "Integrating insurance mitigates default risks significantly across credit portfolios.",
+      "Strategic alignment between banking and insurance elevates long-term client value."
     ],
     images: ['/IMG_5929.JPG', '/IMG_5970.JPG', '/IMG_6052.JPG']
   },
   {
     id: 2,
     index: "02",
-    category: "PANEL DISCUSSION 2",
-    title: "Panel Discussion: Leveraging AI for Personalised Customer Experiences",
+    category: "DISCUSSION 2",
+    title: "AI-Driven Transformation in Insurance:",
     panelists: [
-      { name: "Panelist E", role: "Chief Marketing Officer" },
-      { name: "Panelist F", role: "Consumer Insights Lead" },
-      { name: "Panelist G", role: "Head of CX" }
+      { name: "Manas Gupta", role: "Phone Pe" },
+      { name: "Surendra Katariya", role: "BFL" },
+      { name: "Vipul Agarwal", role: "Axis Bank" },
+      { name: "Sarbvir Singh", role: "PB Fintech" },
+      { name: "Nitish Kumar", role: "Poonawalla Fincorp" },
+      { name: "Dhirendra Mahyavanshi", role: "Turtlemint" }
     ],
-    overview: "Panelists shared insights on transparency in policy design, simplified communication, and empathetic customer service — highlighting how trust is earned through consistent delivery and proactive engagement.",
+    overview: "How AI might redefine the very operating model of insurance companies.",
     takeaways: [
-      "Transparency in policy terms is the foundation of customer trust",
-      "Proactive health engagement builds stronger brand loyalty",
-      "Simplified communication reduces claim disputes by 45%"
+      "AI automation is restructuring core underwriting and claims processing workflows.",
+      "Machine learning models significantly improve precision in risk assessment.",
+      "Generative AI creates hyper-personalized customer engagement channels at scale."
     ],
     images: ['/IMG_6108.JPG', '/IMG_6248.JPG', '/IMG_5929.JPG']
   },
   {
     id: 3,
     index: "03",
-    category: "PANEL DISCUSSION 3",
-    title: "Panel Discussion: AI & the Future of Digital Banking",
+    category: "DISCUSSION 3",
+    title: "Bridging the Trust Deficit in Insurance:",
     panelists: [
-      { name: "Panelist H", role: "Regulatory Affairs Director" },
-      { name: "Panelist I", role: "Legal Counsel, InsureTech" },
-      { name: "Panelist J", role: "Policy Analyst" },
-      { name: "Panelist K", role: "Compliance Head" }
+      { name: "Sajja Chowdhary", role: "PB Fintech" },
+      { name: "Mahesh Dayani", role: "SBFC Finance" },
+      { name: "Roopa Natrajan", role: "HDFC Bank" },
+      { name: "Shirish Patel", role: "Gennext" },
+      { name: "Jasmine Kaur", role: "Mahindra Finance" },
+      { name: "Arjun Chowdhry", role: "Grihum Housing" },
+      { name: "Saurabh Jain", role: "SCB" }
     ],
-    overview: "Experts examined upcoming policy changes, the impact of IRDAI reforms, and how insurers can adapt their product portfolios to meet compliance requirements while innovating for customer needs.",
+    overview: "How insurers can rebuild trust",
     takeaways: [
-      "IRDAI reforms are creating new opportunities for product innovation",
-      "Compliance-first design accelerates time to market",
-      "Risk-based capital frameworks will reshape competitive dynamics"
+      "Radical transparency in policy formulation remains the absolute foundation of consumer trust.",
+      "Simplifying communication architecture massively reduces dispute friction.",
+      "Proactive empathetic customer engagement builds unshakeable brand loyalty."
     ],
     images: ['/IMG_5970.JPG', '/IMG_6052.JPG', '/IMG_6108.JPG']
   },
   {
     id: 4,
     index: "04",
-    category: "PANEL DISCUSSION 4",
-    title: "Fireside Chat: Where AI Meets Mindfulness — Technology & Spiritual Intelligence",
+    category: "DISCUSSION 4",
+    title: "Winning the Last Mile",
     panelists: [
-      { name: "Shree Gauranga Das ji", role: "Spiritual Leader & Author" },
-      { name: "Mr. Amitabh Chaudhry", role: "MD & CEO, Axis Bank" }
+      { name: "Rohit Chugh", role: "Capri Global" },
+      { name: "Kranti Sharma", role: "L&T Finance" },
+      { name: "Saumya Chaudhuri", role: "IDBI Bank" },
+      { name: "K Suresh Kumar", role: "Fedfina" },
+      { name: "Gursharan Rai Bansal", role: "IPPB" }
     ],
-    overview: "Leaders discussed how wellness programs, wearable tech data, and lifestyle coaching can reduce claims while improving health outcomes — agreeing that the future of insurance lies in prevention, not just coverage.",
+    overview: "Reimagining Insurance Distribution in a Platform Economy",
     takeaways: [
-      "Wellness incentive programs reduce hospitalization claims by 30%",
-      "Wearable data integration enables dynamic premium adjustments",
-      "Preventive care is the most cost-effective long-term strategy"
+      "Embedded insurance inside existing platform ecosystems dramatically reduces acquisition costs.",
+      "Localizing digital touchpoints ensures deep penetration in tier-2 and tier-3 sectors.",
+      "Interoperable digital public infrastructure is the key to scaling the last mile."
     ],
     images: ['/IMG_6248.JPG', '/IMG_5929.JPG', '/IMG_5970.JPG']
+  },
+  {
+    id: 5,
+    index: "05",
+    category: "DISCUSSION 5",
+    title: "Affordability vs Value in Insurance",
+    panelists: [
+      { name: "Amit Chhabra", role: "PB Fintech" },
+      { name: "Ashish Goyal", role: "Early Salary" },
+      { name: "Dhiraj Reli", role: "HSL" },
+      { name: "Neeraj Purohit", role: "Paytm" },
+      { name: "Raul Rebello", role: "Mahindra Finance" },
+      { name: "Balachander Shekhar", role: "Renew Buy" }
+    ],
+    overview: "How insurers can innovate through new product designs, preventive healthcare initiatives, and technology-driven cost efficiencies.",
+    takeaways: [
+      "Preventive healthcare integrations reduce long-term structural underwriting strains.",
+      "Modular product designs empower consumers to build custom, highly affordable portfolios.",
+      "Technology-driven cost compression allows for superior value delivery without margin loss."
+    ],
+    images: ['/IMG_6052.JPG', '/IMG_6108.JPG', '/IMG_6248.JPG']
   }
 ];
 
@@ -79,16 +114,7 @@ const KeynotesPage = () => {
     <div className="keynotes-page">
       <div className="section-container">
         
-        {/* Header Hero strictly matching screenshot details */}
-        <section className="keynotes-hero">
-          <div className="k-hero-text">
-            <h1 className="k-hero-title">Panel Discussion<br/>Highlights</h1>
-            <p className="k-hero-desc">Explore curated highlights from the panel discussions that shaped the narrative of the defining decade.</p>
-          </div>
-          <div className="k-hero-visual">
-            <img src="/IMG_5929.JPG" alt="Panel Discussion Highlights banner" className="k-hero-img" />
-          </div>
-        </section>
+        {/* Top Hero text removed per user request */}
 
         {/* All panels use consistent layout: content left, images right */}
         <div className="k-panels-feed">
@@ -104,13 +130,17 @@ const KeynotesPage = () => {
                   <h2 className="panel-title">{panel.title}</h2>
 
                   <h5 className="panel-section-title">PANELISTS</h5>
-                  <div className="panelists-grid">
+                  <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(2, 1fr)',
+                    gap: '20px 24px',
+                    width: '100%',
+                    marginBottom: '40px'
+                  }}>
                     {panel.panelists.map((person, idx) => (
-                      <div key={idx} className="panelist-pill">
-                        <div className="panelist-info">
-                          <h4>{person.name}</h4>
-                          <p>{person.role}</p>
-                        </div>
+                      <div key={idx} style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
+                        <span style={{ color: '#fff', fontSize: '1.25rem', fontWeight: '500' }}>{person.name}</span>
+                        <span style={{ color: '#777', fontSize: '0.85rem', fontWeight: '700' }}>{person.role}</span>
                       </div>
                     ))}
                   </div>
@@ -128,12 +158,28 @@ const KeynotesPage = () => {
                   </div>
                 </div>
 
-                {/* RIGHT: Images — starts at same level as title */}
-                <div className="panel-imagery">
-                  <img src={panel.images[0]} alt="main panel" className="img-hero" />
-                  <div className="img-grid-2">
-                     <img src={panel.images[1]} alt="sub panel 1" className="img-small" />
-                     <img src={panel.images[2]} alt="sub panel 2" className="img-small" />
+                {/* RIGHT: Image (Single feature style mimicking Fireside page) */}
+                <div className="panel-imagery" style={{ display: 'flex', alignItems: 'center' }}>
+                  <div style={{ position: 'relative', width: '100%' }}>
+                    <img src={panel.images[0]} alt="Speaker discussion" className="img-hero" style={{ height: 'auto', width: '100%', borderRadius: '12px', marginBottom: '0' }} />
+                    {/* Floating Play Button Overlay */}
+                    <div style={{ 
+                      position: 'absolute', 
+                      top: '50%', left: '50%', 
+                      transform: 'translate(-50%, -50%)', 
+                      backgroundColor: 'rgba(0,173,238,0.85)', 
+                      borderRadius: '50%', 
+                      width: '74px', height: '74px', 
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', 
+                      cursor: 'pointer', 
+                      border: '3px solid #fff',
+                      boxShadow: '0 8px 16px rgba(0,0,0,0.5)',
+                      transition: 'transform 0.2s ease'
+                    }}>
+                      <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+                        <path d="M5 3l14 9-14 9V3z"/>
+                      </svg>
+                    </div>
                   </div>
                 </div>
 

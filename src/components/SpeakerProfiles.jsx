@@ -12,7 +12,7 @@ const speakers = [
   },
   {
     name: 'Yashish Dahiya',
-    title: 'CO-FOUNDER AND GROUP CEO – POLICYBAZAAR',
+    title: 'CHAIRMAN PB FINTECH',
     bio: 'Yashish is the visionary co-founder of PolicyBazaar and Paisabazaar, revolutionizing the digital insurance and credit landscape in India. An avid sportsman and seven-time Ironman finisher, he holds degrees from IIT Delhi, IIM Ahmedabad, and INSEAD.',
     image: '/Yashish Dahiya.jpeg'
   },

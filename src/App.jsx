@@ -5,6 +5,7 @@ import KeynotesPage from './pages/KeynotesPage';
 import SpeakersPage from './pages/SpeakersPage';
 import PhotosPage from './pages/PhotosPage';
 import GalleryPage from './pages/GalleryPage';
+import FiresideChatsPage from './pages/FiresideChatsPage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/speakers" element={<SpeakersPage />} />
           <Route path="/photos" element={<PhotosPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/fireside-chats" element={<FiresideChatsPage />} />
         </Routes>
       </div>
     </Router>

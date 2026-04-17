@@ -14,7 +14,7 @@ const WhitePaper = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <h2 className="section-title" style={{ color: '#00adee', marginBottom: '24px' }}>Health Protection Report</h2>
+            <h2 className="section-title" style={{ color: '#00adee', marginBottom: '24px' }}>India's Health Protection Score 2026</h2>
             <p className="whitepaper-subtitle" style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,0.7)', lineHeight: '1.7', marginBottom: '16px' }}>
               India’s Health Protection Score is a nationwide study of 2,400+ respondents, revealing a gap between perceived and actual health preparedness among young Indians. While 65% of uninsured youth report no ailments, many rely on self-belief over medical validation. The Health Protection Score (HPS), a first-of-its-kind composite metric built on financial adequacy, preventive care, family history, and lifestyle, measures real readiness against medical uncertainty. It reveals that nearly 3 in 4 young Indians remain financially or medically exposed.
             </p>

@@ -12,9 +12,7 @@ const AboutNiva = () => {
           <div className="about-niva-text-side">
             <h2 className="section-title text-gradient" style={{ marginBottom: '20px' }}>About Niva Bupa Health Insurance</h2>
             <p className="about-niva-description">
-              One of India's leading standalone health insurers, Niva Bupa is committed to empowering Indians 
-              with access to the best healthcare — when they need it most. As India enters its defining decade, 
-              Niva Bupa champions a healthier, more protected India.
+              At Niva Bupa, our purpose is “to give every Indian the confidence to access the best healthcare” by empowering them with knowledge, guiding them with expertise, and providing them with a gamut of services that instils confidence and puts control back in their hands- just the way they want every moment of their life to be. For us, health insurance is not just an annual transaction. Rather, it is about building a long-term relationship with our customers.
             </p>
             <a 
               href="https://www.nivabupa.com/" 
@@ -22,7 +20,7 @@ const AboutNiva = () => {
               rel="noopener noreferrer" 
               className="btn-unified"
             >
-              Explore more →
+              Explore more
             </a>
           </div>
         </div>

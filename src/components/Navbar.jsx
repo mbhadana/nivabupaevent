@@ -18,7 +18,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'Speaker videos', href: '/speakers' },
+    { name: 'Fireside Chat Videos', href: '/fireside-chats' },
     { name: 'Highlight videos', href: '/keynotes' },
     { name: 'Gallery', href: '/gallery' },
     { name: 'Get your photos', href: '/photos' },

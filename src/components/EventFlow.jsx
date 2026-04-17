@@ -11,7 +11,7 @@ const agenda = [
   { time: '11:15 AM – 12:00 PM', title: 'Discussion', desc: 'The Missing Link in Loan Protection Strategies' },
   { time: '12:00 PM – 12:45 PM', title: 'Discussion', desc: 'AI-Driven Transformation in Insurance' },
   { time: '12:45 PM – 1:30 PM', title: 'Lunch Break', desc: '' },
-  { time: '1:30 PM – 2:00 PM', title: 'In Conversation', desc: 'Ankur Kharbanda, Executive Director & CBO - Niva Bupa in conversation with Yashish Dahiya, Co-Founder & CEO - PolicyBazaar' },
+  { time: '1:30 PM – 2:00 PM', title: 'In Conversation', desc: 'Ankur Kharbanda, Executive Director & CBO - Niva Bupa in conversation with Yashish Dahiya, Chairman PB Fintech' },
   { time: '2:00 PM – 2:45 PM', title: 'Discussion', desc: 'Bridging the Trust Deficit in Insurance' },
   { time: '2:45 PM – 3:30 PM', title: 'Discussion', desc: 'Winning the Last Mile' },
   { time: '3:30 PM – 4:30 PM', title: 'In Conversation', desc: 'Ankur Kharbanda, Executive Director & CBO - Niva Bupa in conversation with Gauranga Das Ji, Monk & Spiritual Leader, ISKCON' },
