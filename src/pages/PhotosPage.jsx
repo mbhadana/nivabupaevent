@@ -53,6 +53,9 @@ const PhotosPage = () => {
       <section className="photos-hero" style={{ justifyContent: 'center', paddingBottom: '0' }}>
         <div className="photos-hero-text" style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
           <h1 className="photos-title">Find Your Event Photos</h1>
+          <p className="photos-desc">
+            Upload your photo and our intelligent system will identify and curate all event images featuring you. <br />You can then download them.
+          </p>
           <div className="photos-accent-line" style={{ margin: '30px auto' }}></div>
         </div>
       </section>
